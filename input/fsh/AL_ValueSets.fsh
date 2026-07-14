@@ -1,6 +1,8 @@
 // Medication
 Alias: $GSN_VS = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-gsn
+Alias: $ETC_VS = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-etc
 Alias: $MimicMedicationCodes = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication
+Alias: $MimicMedicationWithUnknown = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-with-unknown
 
 Alias: $MimicMedicationMethod = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-method
 Alias: $MimicMedicationRoute = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-route
@@ -43,3 +45,10 @@ Alias: $MimicMicrobiologyOrganism = http://mimic.mit.edu/fhir/mimic/ValueSet/mim
 Alias: $MimicMicrobiologyTest = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-microbiology-test
 Alias: $MimicSpecimenType = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-specimen-type
 Alias: $ObservationInterpretation = http://hl7.org/fhir/ValueSet/observation-interpretation
+Alias: $MimicMicroInterpretation = http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-micro-interpretation
+
+// External terminology (binding-analysis 2026-07-10)
+Alias: $VSNullFlavor = http://terminology.hl7.org/ValueSet/v3-NullFlavor
+Alias: $VSActPriority = http://terminology.hl7.org/ValueSet/v3-ActPriority
+Alias: $VSLocationPhysicalType = http://hl7.org/fhir/ValueSet/location-physical-type
+Alias: $VSOrganizationType = http://hl7.org/fhir/ValueSet/organization-type
