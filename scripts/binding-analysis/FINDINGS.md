@@ -5,7 +5,7 @@ Produced 2026-07-10 from the full pipeline run: 131 candidate elements scanned
 (`work-items.json`), full-data distinct extraction on the HPC node
 (`distinct-codes.ndjson`, 38,102 distinct codes, 0 errors), offline coverage
 cross-check (`binding-report.{json,md}`), and live Ontoserver validation of the
-external-terminology fields. See `MODIFICATION_PLAN.md` (repo root) for overall plan.
+external-terminology fields. See `RUNBOOK.md` (repo root) for the overall pipeline.
 
 ## Results overview (11 populated elements of 131 candidates; 120 had no data)
 
