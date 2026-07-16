@@ -42,6 +42,7 @@ Usage (`striprtf` is pinned in the repo's pyproject.toml; run via uv from the re
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -52,7 +53,7 @@ from pathlib import Path
 
 import striprtf.striprtf
 
-DEFAULT_FHIR_BASE = "https://velonto.dw.csiro.au/fhir"
+DEFAULT_FHIR_BASE = os.environ.get("ONTOSERVER_URL")
 SYSTEM_URI = "http://hl7.org/fhir/sid/icd-9-cm"
 OID = "urn:oid:2.16.840.1.113883.6.103"
 VERSION = "2012"
@@ -497,9 +498,15 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--source", type=Path,
-                    default=Path(__file__).parent / "2012_icd9" / "Dtab12.rtf")
+                    default=Path(os.environ.get("ICD_SOURCE_DIR",
+                                                Path(__file__).parent))
+                            / "2012_icd9" / "Dtab12.rtf",
+                    help="CDC FY2012 Disease Tabular RTF "
+                         "(default: $ICD_SOURCE_DIR/2012_icd9/Dtab12.rtf)")
     ap.add_argument("--out-dir", type=Path, default=Path(__file__).parent / "output")
-    ap.add_argument("--fhir-base", default=DEFAULT_FHIR_BASE)
+    ap.add_argument("--fhir-base", default=DEFAULT_FHIR_BASE,
+                    help="terminology server base URL (default: $ONTOSERVER_URL; "
+                         "no upload when unset)")
     ap.add_argument("--no-upload", action="store_true", help="convert only")
     args = ap.parse_args()
 
@@ -548,6 +555,9 @@ def main():
         print(f"  removed {old_vs_file} (superseded by ValueSet-mimic-diagnosis)")
 
     if args.no_upload:
+        return
+    if not args.fhir_base:
+        print("  skipping upload: no --fhir-base and ONTOSERVER_URL unset")
         return
     try:
         upload(cs, args.fhir_base)

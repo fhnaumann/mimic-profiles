@@ -360,8 +360,9 @@ def do_run(args, keys):
 def parse_args(argv):
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--data",
-                   help="Path to the Pathling Delta warehouse (one table per resource type).")
+    p.add_argument("--data", default=os.environ.get("MIMIC_WAREHOUSE"),
+                   help="Path to the Pathling Delta warehouse (one table per "
+                        "resource type). Default: $MIMIC_WAREHOUSE.")
     p.add_argument("--output",
                    help="Where to write the migrated Condition table. Point it at "
                         "--data itself (with --overwrite) for in-place migration.")

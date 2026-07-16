@@ -98,8 +98,10 @@ def collect_codes(path, label):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--source", required=True,
-                    help="Path to the ORIGINAL Delta warehouse.")
+    ap.add_argument("--source", default=os.environ.get("MIMIC_WAREHOUSE"),
+                    required="MIMIC_WAREHOUSE" not in os.environ,
+                    help="Path to the ORIGINAL Delta warehouse "
+                         "(default: $MIMIC_WAREHOUSE).")
     ap.add_argument("--migrated", required=True,
                     help="Path to the migrated output warehouse.")
     ap.add_argument("--map", default=DEFAULT_MAP)

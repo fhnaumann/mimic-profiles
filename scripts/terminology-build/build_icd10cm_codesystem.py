@@ -27,6 +27,7 @@ Usage:
 
 import argparse
 import json
+import os
 import re
 import ssl
 import sys
@@ -36,7 +37,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-DEFAULT_FHIR_BASE = "https://velonto.dw.csiro.au/fhir"
+DEFAULT_FHIR_BASE = os.environ.get("ONTOSERVER_URL")
 SYSTEM_URI = "http://hl7.org/fhir/sid/icd-10-cm"
 OID = "urn:oid:2.16.840.1.113883.6.90"
 
@@ -264,12 +265,20 @@ def smoke_test(cs, fhir_base):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("years", nargs="+", help="release year folders, e.g. 2016 2017")
-    ap.add_argument("--base-dir", type=Path, default=Path(__file__).parent,
-                    help="directory containing the year folders")
+    ap.add_argument("--base-dir", type=Path,
+                    default=Path(os.environ.get("ICD_SOURCE_DIR",
+                                                Path(__file__).parent)),
+                    help="directory containing the year folders "
+                         "(default: $ICD_SOURCE_DIR)")
     ap.add_argument("--out-dir", type=Path, default=Path(__file__).parent / "output")
-    ap.add_argument("--fhir-base", default=DEFAULT_FHIR_BASE)
+    ap.add_argument("--fhir-base", default=DEFAULT_FHIR_BASE,
+                    help="terminology server base URL (default: $ONTOSERVER_URL; "
+                         "no upload when unset)")
     ap.add_argument("--no-upload", action="store_true", help="convert only")
     args = ap.parse_args()
+
+    if not args.no_upload and not args.fhir_base:
+        print("skipping uploads: no --fhir-base and ONTOSERVER_URL unset")
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
     failures = []
@@ -298,7 +307,7 @@ def main():
         out = args.out_dir / f"CodeSystem-icd-10-cm-{year}.json"
         out.write_text(json.dumps(cs, indent=1))
         print(f"  wrote {out}")
-        if not args.no_upload:
+        if not args.no_upload and args.fhir_base:
             try:
                 upload(cs, args.fhir_base)
                 if not smoke_test(cs, args.fhir_base):

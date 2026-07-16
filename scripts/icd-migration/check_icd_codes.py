@@ -37,7 +37,7 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RESOURCES = os.path.join(REPO, "input", "resources")
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DEFAULT_ENDPOINT = "https://velonto.dw.csiro.au/fhir"
+DEFAULT_ENDPOINT = os.environ.get("ONTOSERVER_URL")
 
 SYSTEMS = {
     "icd10": {
@@ -299,7 +299,8 @@ def check_system(key, endpoint, workers, valueset=None):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--endpoint", default=DEFAULT_ENDPOINT,
-                    help="FHIR terminology server base URL (default: %(default)s)")
+                    help="FHIR terminology server base URL "
+                         "(default: $ONTOSERVER_URL)")
     ap.add_argument("--system", choices=["icd10", "icd9", "both"], default="both")
     ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--insecure", action="store_true",
@@ -312,6 +313,10 @@ def main():
                          "compose pins; systems it does not pin fall back to "
                          "CodeSystem/$validate-code.")
     args = ap.parse_args()
+
+    if not args.endpoint:
+        ap.error("a terminology server is required: pass --endpoint or set "
+                 "ONTOSERVER_URL")
 
     if args.insecure:
         global SSL_CONTEXT
