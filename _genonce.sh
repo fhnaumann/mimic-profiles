@@ -1,12 +1,18 @@
 #!/bin/bash
 publisher_jar=publisher.jar
 input_cache_path=./input-cache/
-echo Checking internet connection...
-curl -sSf tx.fhir.org > /dev/null
+txserver=https://velonto.dw.csiro.au/fhir
+# velonto's cert chains to the CSIRO internal CA, which Java doesn't trust by
+# default, so point it at a store built as JDK cacerts + that chain:
+#   keytool -importcert -keystore input-cache/velonto-truststore.jks \
+#           -storepass changeit -file <csiro-ca.pem> -alias csiro-ca
+tsopts="-Djavax.net.ssl.trustStore=${input_cache_path}velonto-truststore.jks -Djavax.net.ssl.trustStorePassword=changeit"
+echo Checking terminology server connection...
+curl -sSf "$txserver/metadata" > /dev/null
 
 if [ $? -eq 0 ]; then
-	echo "Online"
-	txoption=""
+	echo "Online ($txserver)"
+	txoption="-tx $txserver"
 else
 	echo "Offline"
 	txoption="-tx n/a"
@@ -18,12 +24,12 @@ export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Dfile.encoding=UTF-8"
 
 publisher=$input_cache_path/$publisher_jar
 if test -f "$publisher"; then
-	java -jar $publisher -ig . $txoption $*
+	java ${JAVA_OPTS:--Xmx10g} $tsopts -jar $publisher -ig . $txoption $*
 
 else
 	publisher=../$publisher_jar
 	if test -f "$publisher"; then
-		java -jar $publisher -ig . $txoption $*
+		java ${JAVA_OPTS:--Xmx10g} $tsopts -jar $publisher -ig . $txoption $*
 	else
 		echo IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
 	fi

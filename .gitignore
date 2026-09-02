@@ -7,5 +7,22 @@ Thumbs.db
 /template
 
 .idea
-/_*.bat
+__pycache__/
+
+# generated FHIR package caches
 .index.db
+
+# Windows counterparts of the IG publisher scripts, pulled in by _updatePublisher.sh
+_*.bat
+
+# local outputs of the ICD data migration (demo runs)
+/transformed_data/
+
+# binding-analysis: the full-data distinct-code extraction, 9.4 MB of
+# warehouse-derived counts. Regenerate with phase1_extract_distinct.py on the
+# node; what it was reduced to is committed as binding-report.{json,md},
+# work-items.json and FINDINGS.md.
+scripts/binding-analysis/distinct-codes.ndjson
+
+# Local credentials — never commit
+.env
