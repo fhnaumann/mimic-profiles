@@ -1,39 +1,59 @@
 name: Build the IG
+
+# The built IG is published as ONE artifact: output/package.tgz, the standard
+# FHIR NPM package, attached to the release that triggered the build. Nothing is
+# pushed to a website. The upstream workflow deployed the rendered site to
+# kind-lab/kind-lab.github.io using a PAT this fork does not hold, so that step
+# could never have succeeded here.
+#
+# package.tgz is what mimic-iv-terminology consumes: it carries every conformance
+# resource, including the ValueSets SUSHI generates from input/fsh/, which are
+# gitignored and therefore exist nowhere else.
+
 on:
   release:
     types: [published]
+  # So the package can be built off any branch without cutting a release. GitHub
+  # only offers workflow_dispatch for workflows present on the default branch.
+  workflow_dispatch:
+
+# gh release upload writes to the release.
+permissions:
+  contents: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      # GitHub only triggers `release` and `workflow_dispatch` from the workflow
+      # file on the DEFAULT branch, and documents GITHUB_SHA for a release as the
+      # default branch's head. The tag is named explicitly so the package is
+      # built from the commit the release points at, whatever branch that is on
+      # -- which is what lets the facade ValueSets in input/fsh/ be released
+      # without first merging them to main.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || github.ref }}
 
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
 
-    # Install ruby
-    # https://github.com/ruby/setup-ruby
+      # The IG Publisher renders the site with Jekyll and fails without it, even
+      # though only package.tgz is kept.
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
 
-    # Install Jekyll
-    # https://jekyllrb.com/docs/installation/ubuntu/
       - name: "Install Jekyll"
         shell: bash
         run: |
           gem install jekyll bundler
           jekyll -v
 
-    # Install node if SUSHI is needed
-    # https://github.com/actions/setup-node
-      - name: "Install Node.js"
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: "18"
 
@@ -47,24 +67,42 @@ jobs:
       - name: "Download the IG Publisher"
         shell: bash
         run: |
-          mkdir ./input-cache
+          mkdir -p ./input-cache
           curl -sS -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o ./input-cache/publisher.jar
           chmod +x ./input-cache/publisher.jar
 
       - name: "Create IG"
         shell: bash
         run: |
-          java -jar -Xms4096M -Xmx6144M -XX:NewRatio=1 -XX:-UseAdaptiveSizePolicy input-cache/publisher.jar ig.ini
+          # The runner mounts /tmp with noexec, which prevents the SQLite JDBC
+          # driver from loading its native library. Extract it to an
+          # exec-capable directory within the workspace instead.
+          mkdir -p "$GITHUB_WORKSPACE/.sqlite-tmp"
+          java -Dorg.sqlite.tmpdir="$GITHUB_WORKSPACE/.sqlite-tmp" -jar -Xms2048M -Xmx4096M -XX:NewRatio=1 -XX:-UseAdaptiveSizePolicy input-cache/publisher.jar ig.ini
 
-      # Deploy IG
-      - name: "Deploy to kind-lab.github.io"
+      # A publisher that fails late can still leave an output/ behind, so assert
+      # the one file this whole workflow exists to produce, and print what is in
+      # it — a package built from a branch without input/fsh/'s facade ValueSets
+      # is the failure worth seeing in the log.
+      - name: "Check package.tgz"
+        shell: bash
         run: |
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git config --global user.name "github-actions[bot]"
-            git config --global credential.helper cache
-            git clone --depth 1 https://${{ secrets.GH_MIMIC_PROFILES_PAT }}@github.com/kind-lab/kind-lab.github.io website
-            mv output website/mimic-fhir
-            cd website
-            git add mimic-fhir
-            git commit -a -m "$(date): update mimic-fhir IG"
-            git push
+          test -f output/package.tgz
+          echo "package.tgz: $(stat -c%s output/package.tgz) bytes"
+          echo "resources: $(tar -tzf output/package.tgz | grep -c '^package/.*\.json$')"
+          tar -tzf output/package.tgz | grep -E 'package/(ValueSet|StructureDefinition)-mimic-.*merged' || \
+            echo "NOTE: no merged/facade resources in this package"
+
+      # Kept for workflow_dispatch runs, which have no release to attach to.
+      # Retained for 90 days; a release asset is the durable copy.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: output/package.tgz
+
+      - name: "Attach package.tgz to the release"
+        if: github.event_name == 'release'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" output/package.tgz --clobber
