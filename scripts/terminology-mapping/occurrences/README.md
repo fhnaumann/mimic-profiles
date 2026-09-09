@@ -146,6 +146,112 @@ its own CodeSystem (`mimic-chartevents-d-items`, `mimic-d-labitems`,
 `mimic-microbiology-organism`), so a code's system already says which
 population it came from.
 
-**No patient or encounter counts.** Considered and rejected: the metric is "how
-likely is a data point to carry an unmapped code", which is rows by definition,
-and a patient count never enters it.
+**No patient or encounter counts in *these* files.** For the coverage metric —
+"how likely is a data point to carry an unmapped code" — the answer is rows by
+definition and a patient count never enters it. A nullable, exact
+distinct-patient count *is* exported, but only in the storage-space inventory
+below, which answers a different question for a different consumer. No patient
+identifier and no patient membership set is written by any of these outputs.
+
+---
+
+## The storage-space inventory (`--inventory-out`)
+
+A **second export of the same counts**, for a different consumer: the
+cohort-selection orchestrator's code-pool add surface, which lets a researcher
+add a code that terminology search missed. It needs to know which codes the
+warehouse actually stores, how much data each carries, and nothing else.
+
+```
+<dataset>.csv        column,stored_system,stored_code,stored_display,occurrences,subjects
+<dataset>.meta.json  per-column count grain + resource-grain totals + provenance
+```
+
+It is a re-export, not a second extraction: `build_inventory` is pure over the
+counts already collected in memory, so the two artifacts cannot disagree about
+what was measured, and `occurrence-summary.json` stays the raw record the
+inventory is checked against.
+
+### What the columns mean, and what they do not
+
+- `column` is **resource-qualified**, with the choice marker dropped —
+  `MedicationRequest.medication`, not `medication[x]` and not a table name.
+- `occurrences` counts **coding occurrences**, including repeated codings and
+  repeated components. It is not resources, events, or patients. For
+  `Medication.code` it is dictionary size, and `occurrence_kind` in the manifest
+  says so per column (`event_coding` / `dictionary_coding`) so the two can never
+  be compared by accident.
+- `subjects` is an **exact distinct-patient count or empty**. Never zero for
+  "unmeasured", never a lower bound: any stored identity with even one coding
+  whose subject reference does not resolve gets an empty field, and every
+  dictionary element gets one for every row, because `Medication` has no patient
+  and choosing a referring population for it would be inventing one.
+  Reference-weighted patient counts are deliberately not attempted.
+- `uncoded_resources` is **measured**, via each element's declared
+  `coded_exists` FHIRPath, not derived as `total_resources - occurrences`. That
+  subtraction is negative for `Observation.component.code` before it is wrong in
+  any interesting way.
+- Codings with no system or no code are **invalid identities**: excluded from the
+  CSV, because the consumer keys on `(column, system, code)` and cannot address
+  them, but counted in the manifest, so
+  `sum(occurrences) + invalid_identity_coding_occurrences` reconciles with the
+  column's coding total instead of the denominator quietly shrinking.
+
+### No classification
+
+The inventory is storage-space only. There are **no target codes and no
+reachability classification**, and `--labels` reads CodeSystem/ValueSet
+*displays* only — never a ConceptMap. Deciding whether a stored code is
+reachable requires the consumer's translation policy, and a second copy of that
+policy here would be a copy that silently diverges. The consumer classifies.
+
+### Snapshot identity is derived, not typed
+
+`--release` names the data release. The dataset label appended to it is a digest
+of the **observed Delta version and commit timestamp of every table read**, and
+the script prints it.
+
+This is not pedantry. `mimic-iv-3.1` named the warehouse counted on 2026-08-06
+(Delta versions 2 and 3) *and* the one that replaced it on 2026-08-24 (every
+table rewritten to a single version 0). The release label would have read as
+unchanged across a reload that invalidated the entire committed artifact — which
+is what actually happened. `csv_sha256` proves file identity and `dataset` proves
+which snapshot was counted; **neither proves the live server still holds it**,
+and the manifest says so in `identity_limitation`.
+
+An unreadable Delta identity for any table is fatal to the export: an inventory
+that cannot say what it counted must not be given a name suggesting it can.
+
+### Build commands
+
+Prod (CSIRO HPC, ~461M Observation rows — the walltime rationale is in the job
+script's header):
+
+```
+sbatch occurrences/count_occurrences.slurm
+```
+
+Demo (local, no queue; the demo warehouse has the same per-resource
+`<ResourceType>.parquet` layout):
+
+```
+uv sync --extra hpc
+uv run python3 -u occurrences/count_occurrences.py \
+  --data /Users/nau025/warehouses/mimic-iv-demo/delta \
+  --out-dir occurrences/demo \
+  --inventory-out occurrences/demo/inventory \
+  --release mimic-iv-demo-2.2 \
+  --labels ig-resources
+```
+
+Then copy `<dataset>.csv` and `<dataset>.meta.json` into the orchestrator's
+`src/services/resources/code_occurrences/` and set that environment's `dataset`
+to the printed label. Do **not** set a `dataset` for an inventory that has not
+been built and verified: the pool is then unavailable and code mapping stays
+subtract-only, which is the correct behaviour, not a degraded one.
+
+### Tests
+
+`make test` — offline, no Spark, no warehouse. Every rule above is asserted over
+hand-built synthetic counts, because the real extraction runs once against data
+no laptop holds and is not a place to discover a contract bug.

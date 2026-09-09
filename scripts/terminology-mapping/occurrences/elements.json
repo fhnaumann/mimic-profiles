@@ -8,6 +8,8 @@
   "reference_join": "Optional. Follows the Reference branch of a choice element to the element that carries its codes, and counts the target's codings weighted by REFERRING resources \u2014 the numerator for resource-level reachability, which neither element can produce alone. `target` names another entry in this file, so the join cannot drift from what that element extracts. Written out as reference-occurrences.csv.",
   "bound_valuesets": "Every ValueSet bound on the element, as the profiles bind them. Where a profile binds coding SLICES rather than the whole CodeableConcept, list only the ValueSets that are actually bound: a coding outside them is genuinely outside every bound enumeration, and saying so is the point.",
   "comment": "Prose for a reader of this file. Never parsed.",
+  "coded_exists": "Required for the storage-space inventory export. A FHIRPath boolean evaluated per RESOURCE, true when this element carries at least one Coding. Its false count is `uncoded_resources`, and it CANNOT be derived by subtracting coding occurrences from the resource count: an element may carry several codings per resource (every CodeableConcept, and `Observation.component.code` repeats per component too), so that subtraction is not a resource count at all. A resource whose coding is present but carries no code is coded-but-invalid, not uncoded, so this asks `.coding.exists()` rather than `.coding.code.exists()`.",
+  "subject_path": "Optional. The DIRECT patient reference on this resource, if it has one, e.g. `subject`. Only when present may the inventory report a distinct-patient count, and only for stored identities whose every coding occurrence has a resolvable subject key; otherwise the count is null rather than an underestimate. Absent for a dictionary resource: Medication has no patient, and choosing a referring population for it would be inventing one. Reference-weighted patient counts are deliberately not attempted.",
   "occurrence_kind": "`events` (default) or `dictionary`. An EVENT element sits on a resource representing one thing that happened to a patient, so one coding is one clinical data point and its occurrence count is data volume. A DICTIONARY element sits on a deduplicated master resource \u2014 Medication is keyed on UUID5 of the drug tuple, so it holds one row per distinct drug, not one per prescription \u2014 and its occurrence count is therefore the SIZE OF THE DICTIONARY, roughly one per code. Counting it is still necessary (observed_only needs a presence signal per code, and dictionary reachability is worth knowing), but the number must never be read as volume or compared with an event element's: build_statistics.py reports the two in separate tables for that reason. The volume question for a dictionary element is answered instead by reference-occurrences.csv, which weights its codes by REFERRING resources."
  },
  "elements": [
@@ -15,6 +17,8 @@
    "element": "Condition.code",
    "resource_type": "Condition",
    "extract_path": "code.coding",
+   "coded_exists": "code.coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-diagnosis-icd"
    ]
@@ -23,6 +27,8 @@
    "element": "Procedure.code",
    "resource_type": "Procedure",
    "extract_path": "code.coding",
+   "coded_exists": "code.coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedure-merged-code"
    ]
@@ -31,6 +37,8 @@
    "element": "Observation.code",
    "resource_type": "Observation",
    "extract_path": "code.coding",
+   "coded_exists": "code.coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-merged-code"
    ]
@@ -39,6 +47,8 @@
    "element": "Observation.component.code",
    "resource_type": "Observation",
    "extract_path": "component.code.coding",
+   "coded_exists": "component.code.coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-component-vital"
    ]
@@ -47,6 +57,8 @@
    "element": "Specimen.type",
    "resource_type": "Specimen",
    "extract_path": "type.coding",
+   "coded_exists": "type.coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-specimen-type"
    ]
@@ -55,6 +67,8 @@
    "element": "MedicationAdministration.medication[x]",
    "resource_type": "MedicationAdministration",
    "extract_path": "medication.ofType(CodeableConcept).coding",
+   "coded_exists": "medication.ofType(CodeableConcept).coding.exists()",
+   "subject_path": "subject",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-administration-merged-code"
    ]
@@ -64,6 +78,8 @@
    "resource_type": "MedicationRequest",
    "comment": "A CHOICE element, and the only medication profile in the IG that does NOT constrain it to CodeableConcept: mimic-medication-request leaves it CodeableConcept | Reference(MimicMedication), and both its own example and input/includes/map-mimic-hosp-meds.md use the Reference branch. This path deliberately counts only the inline CodeableConcept, because that is the only branch that carries a Coding and therefore the only branch $translate can be called on. The Reference branch's codes are on Medication.code below, counted once, there. Folding them in here would assert codes are present on an element that does not carry them. What the two paths cannot show between them is HOW MANY requests take each branch, which is why count_occurrences.py also writes element-shapes.csv.",
    "extract_path": "medication.ofType(CodeableConcept).coding",
+   "coded_exists": "medication.ofType(CodeableConcept).coding.exists()",
+   "subject_path": "subject",
    "count_shapes": {
     "with_codeable_concept": "medication.ofType(CodeableConcept).exists()",
     "with_coding": "medication.ofType(CodeableConcept).coding.exists()",
@@ -82,6 +98,7 @@
    "resource_type": "Medication",
    "comment": "Where the drug identity of a prescription actually lives for every MedicationRequest that uses the Reference branch, which the 2026-08-10 run measured at 13,533,220 of 15,416,901 requests (87.78%). Bound `required` to the same 20,288-code mimic-medication union as MedicationRequest.medication[x]. Note that a required binding on a choice element cannot constrain the Reference branch \u2014 a validator has nothing coded to check \u2014 so for those 13.5M requests the terminology guarantee is carried entirely by THIS element's binding. MEASURED: 10,916 of the 20,288 admitted codes appear here, across three systems only \u2014 mimic-medication-ndc (5,732), mimic-medication-name (4,696) and mimic-medication-formulary-drug-cd (488). mimic-medication-icu and mimic-medication-poe-iv appear NOT AT ALL, so the guess that POE IV/TPN flags would reach this element through poe was wrong. NDC is the volume driver: weighted by referring prescriptions it carries 11,000,655 of them, 71.4% of every prescription in MIMIC. OCCURRENCE COUNTS HERE ARE DICTIONARY SIZE, NOT DATA VOLUME. MIMIC mints one Medication per distinct (drug, gsn, ndc, formulary_drug_cd) tuple \u2014 26,027 rows for 19,689 codings \u2014 so each code occurs about once however many prescriptions use it. It is counted because observed_only needs to know which codes appear at all; the volume figure comes from reference-occurrences.csv. Hence occurrence_kind.",
    "extract_path": "code.coding",
+   "coded_exists": "code.coding.exists()",
    "bound_valuesets": [
     "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-code"
    ],
@@ -92,6 +109,8 @@
    "resource_type": "MedicationDispense",
    "comment": "Constrained `only CodeableConcept` by mimic-medication-dispense, so there is no Reference branch to miss. THE ELEMENT SPANS TWO SUB-TYPES and they bind different systems: the hosp dispense profile binds mimic-medication (name codes \u2014 9,372 of them, 12.7M codings, so this element and not MedicationRequest is where nearly the whole drug-name CodeSystem is used), while mimic-medication-dispense-ed binds medicationCodeableConcept.coding to mimic-medication-gsn (704 codes, 1.55M codings from the ED pyxis table). Counts here are per element across every profile, so the bound ValueSet listed is the merged facade that is the union of both \u2014 mimic-medication alone would classify those 704 gsn codes as not-in-enumeration, i.e. as a required-binding violation, when each is in fact conformant to the sub-type profile that produced it. The 2026-08-10 run measured 35,452 resources with a CodeableConcept and no coding; those are ED pyxis rows with no gsn, which that profile permits (`text` 1..1, `coding` 0..*).",
    "extract_path": "medication.ofType(CodeableConcept).coding",
+   "coded_exists": "medication.ofType(CodeableConcept).coding.exists()",
+   "subject_path": "subject",
    "count_shapes": {
     "with_codeable_concept": "medication.ofType(CodeableConcept).exists()",
     "with_coding": "medication.ofType(CodeableConcept).coding.exists()"
@@ -105,6 +124,8 @@
    "resource_type": "MedicationStatement",
    "comment": "The ED medrecon population. mimic-medication-statement-ed binds the CODING SLICES, not the whole CodeableConcept: gsn -> mimic-medication-gsn (required), etc -> mimic-medication-etc (required), and the ndc slice is DELIBERATELY LEFT UNBOUND \u2014 no terminology server hosts http://hl7.org/fhir/sid/ndc, see binding-analysis/FINDINGS.md D3. Only the two bound ValueSets are listed, so the 9,312 codes on http://hl7.org/fhir/sid/ndc (2,581,349 codings) classify as not-in-enumeration. THAT IS THE INTENDED RESULT, not a binding defect to repair by inventing a ValueSet for them. Note that FINDINGS.md D3's \"~68% of rows have no codings\" does NOT hold for this element: the 2026-08-10 run measured 11,708 text-only resources out of 2,598,365, which is 0.45%. Slicing at .coding rather than at the CodeableConcept is still right \u2014 it validates each coding against its own system \u2014 but the text-only trap it was also chosen to avoid turns out to be small.",
    "extract_path": "medication.ofType(CodeableConcept).coding",
+   "coded_exists": "medication.ofType(CodeableConcept).coding.exists()",
+   "subject_path": "subject",
    "count_shapes": {
     "with_codeable_concept": "medication.ofType(CodeableConcept).exists()",
     "with_coding": "medication.ofType(CodeableConcept).coding.exists()"

@@ -1,0 +1,239 @@
+{
+ "generated": "2026-09-09T10:26:26+00:00",
+ "host": "SKIDPROOF-QR",
+ "warehouse": "/Users/nau025/warehouses/mimic-iv-demo/delta",
+ "csv": "code-occurrences.csv",
+ "csv_sha256": "41f74cfb62c3ea6842b33d9e274e22f7ea10cf8c26c47cfd1456e0635aa7e7e1",
+ "versions": {
+  "python": "3.14.5",
+  "spark": "4.0.4",
+  "pathling": "9.9.0"
+ },
+ "tables": {
+  "Condition": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:04.444000",
+   "rows": 5051
+  },
+  "Procedure": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:38.364000",
+   "rows": 3450
+  },
+  "Observation": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:32.329000",
+   "rows": 813540
+  },
+  "Specimen": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:15.166000",
+   "rows": 12458
+  },
+  "MedicationAdministration": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:36.729000",
+   "rows": 56535
+  },
+  "MedicationRequest": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:08.072000",
+   "rows": 17552
+  },
+  "Medication": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:16.525000",
+   "rows": 1794
+  },
+  "MedicationDispense": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:11.824000",
+   "rows": 15375
+  },
+  "MedicationStatement": {
+   "delta_version": 4,
+   "committed": "2026-08-24 11:06:39.864000",
+   "rows": 2411
+  }
+ },
+ "elements": {
+  "Condition.code": {
+   "codings": 5051,
+   "distinct_codes": 1575,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 5051,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 1575,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Procedure.code": {
+   "codings": 3450,
+   "distinct_codes": 436,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 3450,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 436,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Observation.code": {
+   "codings": 813540,
+   "distinct_codes": 2106,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 813540,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 2106,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Observation.component.code": {
+   "codings": 60652,
+   "distinct_codes": 79,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 813540,
+    "uncoded_resources": 754148
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 79,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Specimen.type": {
+   "codings": 12458,
+   "distinct_codes": 49,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 12458,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 49,
+    "identities_without_complete_association": 0
+   }
+  },
+  "MedicationAdministration.medication[x]": {
+   "codings": 56535,
+   "distinct_codes": 1054,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 56535,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 1054,
+    "identities_without_complete_association": 0
+   }
+  },
+  "MedicationRequest.medication[x]": {
+   "codings": 2327,
+   "distinct_codes": 309,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 17552,
+    "uncoded_resources": 15225
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 309,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 17552,
+    "with_codeable_concept": 2327,
+    "with_coding": 2327,
+    "with_reference": 15225,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 0
+   },
+   "reference_join": {
+    "via": "Medication.code",
+    "join_strategy": "reference-key",
+    "referring_resources": 15225,
+    "codings_reached": 12382,
+    "distinct_codes_reached": 1055,
+    "dangling": 2843
+   }
+  },
+  "Medication.code": {
+   "codings": 1480,
+   "distinct_codes": 1326,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 1794,
+    "uncoded_resources": 314
+   }
+  },
+  "MedicationDispense.medication[x]": {
+   "codings": 15343,
+   "distinct_codes": 809,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 15375,
+    "uncoded_resources": 32
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 809,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 15375,
+    "with_codeable_concept": 15375,
+    "with_coding": 15343,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 32
+   }
+  },
+  "MedicationStatement.medication[x]": {
+   "codings": 7566,
+   "distinct_codes": 1293,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 2411,
+    "uncoded_resources": 4
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 1293,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 2411,
+    "with_codeable_concept": 2411,
+    "with_coding": 2407,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 4
+   }
+  }
+ },
+ "shapes_csv": "element-shapes.csv",
+ "shapes_csv_sha256": "fcd914576cecd516b95019e9a1cd3dd1abb97bc4bb889357ccd7e23631985d36",
+ "references_csv": "reference-occurrences.csv",
+ "references_csv_sha256": "6719dea48989385aa541b5063fad53f79fd9f9bbb9fed81c0043eac28c6f906e"
+}

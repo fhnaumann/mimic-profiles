@@ -1,0 +1,239 @@
+{
+ "generated": "2026-09-09T10:29:42+00:00",
+ "host": "c275",
+ "warehouse": "/scratch3/nau025/mimic-on-fhir-delta/spark_warehouse",
+ "csv": "code-occurrences.csv",
+ "csv_sha256": "7fa2a622b26a1e9fe0f4fd8d1d59694f6a2cd381c95738a4f2a0b4d792ea4320",
+ "versions": {
+  "python": "3.12.3",
+  "spark": "4.0.2",
+  "pathling": "9.6.0"
+ },
+ "tables": {
+  "Condition": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:28:44",
+   "rows": 5655376
+  },
+  "Procedure": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:34:54",
+   "rows": 3354975
+  },
+  "Observation": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:20:38",
+   "rows": 461098908
+  },
+  "Specimen": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:33:26",
+   "rows": 14963904
+  },
+  "MedicationAdministration": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:34:46",
+   "rows": 36733071
+  },
+  "MedicationRequest": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:01",
+   "rows": 15416901
+  },
+  "Medication": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:33:28",
+   "rows": 26027
+  },
+  "MedicationDispense": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:59",
+   "rows": 14275819
+  },
+  "MedicationStatement": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:35:01",
+   "rows": 2598365
+  }
+ },
+ "elements": {
+  "Condition.code": {
+   "codings": 5655376,
+   "distinct_codes": 27569,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 5655376,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 27569,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Procedure.code": {
+   "codings": 3354975,
+   "distinct_codes": 12734,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 3354975,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 12734,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Observation.code": {
+   "codings": 461098908,
+   "distinct_codes": 4241,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 461098908,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 4241,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Observation.component.code": {
+   "codings": 31444205,
+   "distinct_codes": 152,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 461098908,
+    "uncoded_resources": 431644400
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 152,
+    "identities_without_complete_association": 0
+   }
+  },
+  "Specimen.type": {
+   "codings": 14963903,
+   "distinct_codes": 113,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 14963904,
+    "uncoded_resources": 1
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 113,
+    "identities_without_complete_association": 0
+   }
+  },
+  "MedicationAdministration.medication[x]": {
+   "codings": 36733071,
+   "distinct_codes": 6135,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 36733071,
+    "uncoded_resources": 0
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 6135,
+    "identities_without_complete_association": 0
+   }
+  },
+  "MedicationRequest.medication[x]": {
+   "codings": 1883681,
+   "distinct_codes": 2890,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 15416901,
+    "uncoded_resources": 13533220
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 2890,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 15416901,
+    "with_codeable_concept": 1883681,
+    "with_coding": 1883681,
+    "with_reference": 13533220,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 0
+   },
+   "reference_join": {
+    "via": "Medication.code",
+    "join_strategy": "reference-key",
+    "referring_resources": 13533220,
+    "codings_reached": 11673623,
+    "distinct_codes_reached": 9827,
+    "dangling": 1859597
+   }
+  },
+  "Medication.code": {
+   "codings": 19689,
+   "distinct_codes": 10916,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 26027,
+    "uncoded_resources": 6338
+   }
+  },
+  "MedicationDispense.medication[x]": {
+   "codings": 14240367,
+   "distinct_codes": 10076,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 14275819,
+    "uncoded_resources": 35452
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 10076,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 14275819,
+    "with_codeable_concept": 14275819,
+    "with_coding": 14240367,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 35452
+   }
+  },
+  "MedicationStatement.medication[x]": {
+   "codings": 8143620,
+   "distinct_codes": 19691,
+   "codings_without_code": 0,
+   "resource_shape": {
+    "total_resources": 2598365,
+    "uncoded_resources": 11708
+   },
+   "subjects": {
+    "subject_basis": "subject.getReferenceKey()",
+    "key_strategy": "reference-key",
+    "identities_with_exact_subjects": 19691,
+    "identities_without_complete_association": 0
+   },
+   "shapes": {
+    "resources": 2598365,
+    "with_codeable_concept": 2598365,
+    "with_coding": 2586657,
+    "no_branch": 0,
+    "codeable_concept_without_coding": 11708
+   }
+  }
+ },
+ "shapes_csv": "element-shapes.csv",
+ "shapes_csv_sha256": "be6010532d390b4651ede02ff6b624fe77b7bbfdeeedbe158f9d360e7132d0c7",
+ "references_csv": "reference-occurrences.csv",
+ "references_csv_sha256": "b9e5383dbeca188620de152480cd5b5b39216b20d4f5564cede59a7adcccdc04"
+}

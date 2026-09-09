@@ -1,0 +1,7 @@
+element,shape,resources
+MedicationDispense.medication[x],with_codeable_concept+with_coding,15343
+MedicationDispense.medication[x],with_codeable_concept,32
+MedicationRequest.medication[x],with_reference,15225
+MedicationRequest.medication[x],with_codeable_concept+with_coding,2327
+MedicationStatement.medication[x],with_codeable_concept+with_coding,2407
+MedicationStatement.medication[x],with_codeable_concept,4
