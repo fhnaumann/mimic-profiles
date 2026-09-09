@@ -634,6 +634,7 @@ def write_csv(rows, out_dir):
     Descending count is the order a reader wants (the heaviest codes first) and
     is fully determined by the data, so the committed file is stable.
     """
+    os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, CSV_NAME)
     rows = sorted(rows, key=lambda r: (r["element"], -r["occurrences"],
                                        r["system"], r["code"]))
@@ -925,9 +926,12 @@ def write_inventory(rows, columns, out_dir, dataset, provenance):
     csv_path = os.path.join(out_dir, f"{dataset}.csv")
     rows = sorted(rows, key=lambda r: (r["column"], -r["occurrences"],
                                        r["stored_system"], r["stored_code"]))
+    # LF, not csv's RFC-4180 default of CRLF: csv_sha256 is over the file's
+    # bytes, and git normalizes CRLF to LF on checkout, so a CRLF artifact fails
+    # its own checksum in every consumer that clones the repo it ships in.
     with open(csv_path, "w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=INVENTORY_COLUMNS,
-                                extrasaction="raise")
+                                extrasaction="raise", lineterminator="\n")
         writer.writeheader()
         for row in rows:
             out = dict(row)
