@@ -1,0 +1,26 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicProcedureTypesED",
+  "id": "mimic-procedure-types-ed",
+  "title": "MIMIC-ED Procedure Code Types Value Set",
+  "description": "Selected codes from SNOMED CT that represent either triage or vitalsign measurements.",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedure-types-ed",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "386478007",
+            "display": "Triage: emergency center (procedure)"
+          },
+          {
+            "code": "410188000",
+            "display": "Taking patient vital signs assessment (procedure)"
+          }
+        ]
+      }
+    ]
+  }
+}

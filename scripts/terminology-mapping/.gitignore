@@ -1,0 +1,28 @@
+.DS_Store
+Thumbs.db
+.idea
+.vscode/
+__pycache__/
+.ruff_cache/
+.venv/
+
+# Local credentials and configuration — never commit
+.env
+
+# Raw ICD source distributions. Download separately; layout in README.md,
+# identity pinned in input-manifest.json. Whole tree — one folder per code
+# system per year, several hundred MB.
+/sources/
+
+# The generated ICD CodeSystems are large (the biggest is ~90 MB) and are
+# published as GitHub release assets rather than committed. Everything else in
+# output/ IS committed: the ConceptMaps, the enumerated target ValueSets, the
+# per-field reports, the worklists and the statistics are the work product.
+/output/CodeSystem-*.json
+
+# Derived view of mapping-statistics.csv, which IS committed. Regenerate any
+# time with `make statistics`.
+/output/mapping-statistics.html
+
+# Local Spark scratch from a laptop run of the HPC extractions.
+spark-warehouse/

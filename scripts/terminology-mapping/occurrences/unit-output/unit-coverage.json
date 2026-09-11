@@ -1,0 +1,82 @@
+{
+ "source_artifact": "/Users/nau025/Documents/mimic-profiles/scripts/terminology-mapping/occurrences/unit-output/unit-occurrences.csv",
+ "source_sha256": "c381602936513a030dff9895f88056c51d9e2e2cce3cf5c7947df6e4eb5adcaa",
+ "mapping_table": "/Users/nau025/Documents/mimic-profiles/scripts/terminology-mapping/conceptmaps/units-ucum.csv",
+ "mapping_table_sha256": "69d638f66ffa4d1c7fa639f1c8cc87eb100368c0c9dd97a039f9d472007be3d6",
+ "warehouse": "/scratch3/nau025/mimic-on-fhir-delta/spark_warehouse",
+ "generated": "2026-09-11T05:43:13+00:00",
+ "tables": {
+  "Observation": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:20:38",
+   "rows": 461098908
+  },
+  "MedicationAdministration": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:34:46",
+   "rows": 36733071
+  },
+  "MedicationRequest": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:01",
+   "rows": 15416901
+  },
+  "MedicationDispense": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:59",
+   "rows": 14275819
+  }
+ },
+ "scope": "Quantity.code at Observation value/component and medication dosage dose/rate Quantity paths",
+ "units_stream": {
+  "enumerated_total": 505,
+  "mapped_enumerated": 299,
+  "observed_total": 434,
+  "mapped_observed": 265,
+  "code_coverage_pct": 61.05,
+  "occurrences_total": 227113410,
+  "occurrences_mapped": 224603271,
+  "occurrence_coverage_pct": 98.89
+ },
+ "ucum_native_identity": {
+  "observed_total": 4,
+  "mapped_observed": 4,
+  "occurrences_total": 10796927,
+  "occurrences_mapped": 10796927,
+  "code_coverage_pct": 100.0,
+  "occurrence_coverage_pct": 100.0
+ },
+ "excluded_invalid_or_unenumerated": {
+  "identities": 1,
+  "occurrences": 52751971,
+  "by_identity": [
+   {
+    "system": "http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units",
+    "code": "",
+    "occurrences": 52751971
+   }
+  ]
+ },
+ "by_location": {
+  "MedicationAdministration.dosage.dose": {
+   "total": 34495859,
+   "mapped": 33822425,
+   "occurrence_coverage_pct": 98.04
+  },
+  "MedicationAdministration.dosage.rate[x]": {
+   "total": 4820051,
+   "mapped": 4820051,
+   "occurrence_coverage_pct": 100.0
+  },
+  "MedicationRequest.dosageInstruction.doseAndRate.dose[x]": {
+   "total": 12573565,
+   "mapped": 12536547,
+   "occurrence_coverage_pct": 99.7
+  },
+  "Observation.value[x]": {
+   "total": 175223935,
+   "mapped": 173424248,
+   "occurrence_coverage_pct": 98.97
+  }
+ }
+}

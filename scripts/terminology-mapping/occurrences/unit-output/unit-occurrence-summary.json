@@ -1,0 +1,94 @@
+{
+ "generated": "2026-09-11T05:43:13+00:00",
+ "host": "c001",
+ "warehouse": "/scratch3/nau025/mimic-on-fhir-delta/spark_warehouse",
+ "scope": "Quantity.code at Observation value/component and medication dosage dose/rate Quantity paths",
+ "versions": {
+  "python": "3.12.3",
+  "spark": "4.0.2",
+  "pathling": "9.6.0"
+ },
+ "tables": {
+  "Observation": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:20:38",
+   "rows": 461098908
+  },
+  "MedicationAdministration": {
+   "delta_version": 0,
+   "committed": "2026-08-24 14:34:46",
+   "rows": 36733071
+  },
+  "MedicationRequest": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:01",
+   "rows": 15416901
+  },
+  "MedicationDispense": {
+   "delta_version": 0,
+   "committed": "2026-08-24 11:32:59",
+   "rows": 14275819
+  }
+ },
+ "locations": {
+  "Observation.value[x]": {
+   "path": "value.ofType(Quantity)",
+   "quantities": 234980397,
+   "distinct_identities": 96,
+   "without_system": 0,
+   "without_code": 52739035
+  },
+  "Observation.component.value[x]": {
+   "path": "component.value.ofType(Quantity)",
+   "quantities": 3779500,
+   "distinct_identities": 1,
+   "without_system": 0,
+   "without_code": 0
+  },
+  "MedicationAdministration.dosage.dose": {
+   "path": "dosage.dose",
+   "quantities": 34508795,
+   "distinct_identities": 293,
+   "without_system": 0,
+   "without_code": 12936
+  },
+  "MedicationAdministration.dosage.rate[x]": {
+   "path": "dosage.rate.ofType(Quantity)",
+   "quantities": 4820051,
+   "distinct_identities": 18,
+   "without_system": 0,
+   "without_code": 0
+  },
+  "MedicationRequest.dosageInstruction.doseAndRate.dose[x]": {
+   "path": "dosageInstruction.doseAndRate.dose.ofType(Quantity)",
+   "quantities": 12573565,
+   "distinct_identities": 136,
+   "without_system": 0,
+   "without_code": 0
+  },
+  "MedicationRequest.dosageInstruction.doseAndRate.rate[x]": {
+   "path": "dosageInstruction.doseAndRate.rate.ofType(Quantity)",
+   "quantities": 0,
+   "distinct_identities": 0,
+   "without_system": 0,
+   "without_code": 0
+  },
+  "MedicationDispense.dosageInstruction.doseAndRate.dose[x]": {
+   "path": "dosageInstruction.doseAndRate.dose.ofType(Quantity)",
+   "quantities": 0,
+   "distinct_identities": 0,
+   "without_system": 0,
+   "without_code": 0
+  },
+  "MedicationDispense.dosageInstruction.doseAndRate.rate[x]": {
+   "path": "dosageInstruction.doseAndRate.rate.ofType(Quantity)",
+   "quantities": 0,
+   "distinct_identities": 0,
+   "without_system": 0,
+   "without_code": 0
+  }
+ },
+ "failures": 0,
+ "csv": "unit-occurrences.csv",
+ "csv_sha256": "c381602936513a030dff9895f88056c51d9e2e2cce3cf5c7947df6e4eb5adcaa"
+}

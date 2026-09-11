@@ -1,0 +1,58 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicObservationMergedCode",
+  "id": "mimic-observation-merged-code",
+  "title": "MIMIC Observation code (merged sub-types)",
+  "description": "Union of the per-sub-type Observation.code binding ValueSets (chartevents, datetimeevents, ED, labevents, microbiology organism/antibiotic/test, outputevents, vital signs), for use by MimicObservationMerged. Grouping ValueSet — references only, no own codes. Not part of the upstream MIMIC IG.",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-merged-code",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-chartevents-d-items"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-datetimeevents-d-items"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-type-ed"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-d-labitems"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-microbiology-organism"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-microbiology-antibiotic"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-microbiology-test"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-outputevents-d-items"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-type-vital"
+        ]
+      }
+    ]
+  }
+}

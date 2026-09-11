@@ -1,0 +1,23 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicMedicationAdministrationMergedCode",
+  "id": "mimic-medication-administration-merged-code",
+  "title": "MIMIC MedicationAdministration code (merged sub-types)",
+  "description": "Union of the per-sub-type MedicationAdministration.medication[x] binding ValueSets (ED, ICU), for use by MimicMedicationAdministrationMerged. Grouping ValueSet — references only, no own codes. Not part of the upstream MIMIC IG.",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-administration-merged-code",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication-with-unknown"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-medication"
+        ]
+      }
+    ]
+  }
+}

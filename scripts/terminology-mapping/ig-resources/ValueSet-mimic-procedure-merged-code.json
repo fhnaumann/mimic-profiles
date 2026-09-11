@@ -1,0 +1,28 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicProcedureMergedCode",
+  "id": "mimic-procedure-merged-code",
+  "title": "MIMIC Procedure code (merged sub-types)",
+  "description": "Union of the per-sub-type Procedure.code binding ValueSets (ED, ICD, ICU), for use by MimicProcedureMerged. Grouping ValueSet — references only, no own codes. Not part of the upstream MIMIC IG.",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedure-merged-code",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedure-icd"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedure-types-ed"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-procedureevents-d-items"
+        ]
+      }
+    ]
+  }
+}

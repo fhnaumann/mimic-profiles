@@ -33,5 +33,6 @@ scripts/terminology-mapping/output/CodeSystem-*.json
 scripts/merged_profile_provisioning/spark-warehouse/
 scripts/merged_profile_provisioning/artifacts/
 
-# Local credentials — never commit
+# Local credentials and Pi agent/session artifacts — never commit
 .env
+.pi/

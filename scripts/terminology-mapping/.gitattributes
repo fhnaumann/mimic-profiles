@@ -1,0 +1,22 @@
+# NEVER normalise line endings in this repo. Not a style preference — a
+# correctness requirement, and the failure it prevents is silent.
+#
+# occurrences/code-occurrences.csv is verified against the `csv_sha256` recorded
+# in occurrence-summary.json before it is used, so that a hand-edited or
+# half-transferred file cannot quietly become a number in a thesis table. That
+# check is over BYTES. A git that rewrites CRLF to LF on commit — which
+# `core.autocrlf=input` does, and it is a common global setting — changes those
+# bytes without changing a single value, the sha256 check then fails, and
+# common/occurrences.load() returns None.
+#
+# Nothing errors at that point, by design: absent occurrence counts are a
+# legitimate state (they come from an HPC run). What actually happens is that
+# the `not-observed-in-data` narrowing disappears, every code in an enumeration
+# becomes mappable, and the ConceptMaps silently GROW. Measured, not
+# hypothesised: a fresh clone of a normalising checkout produced maps with extra
+# codes and every check still green.
+#
+# The committed blobs carry CRLF today. `git filter-repo` copies blobs verbatim
+# so an extraction preserves them, but a later `git add` of the same file under
+# `core.autocrlf=input` would not — which is what this file exists to stop.
+* -text

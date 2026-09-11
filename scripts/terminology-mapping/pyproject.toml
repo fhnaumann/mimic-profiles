@@ -1,0 +1,42 @@
+[project]
+name = "mimic-terminology-mapping"
+version = "0.1.0"
+description = "ConceptMaps and enumerated ValueSets mapping MIMIC-IV's local code systems onto SNOMED CT, LOINC, RxNorm, ICD and UCUM"
+readme = "README.md"
+requires-python = ">=3.14"
+
+# Deliberately small. The offline pipeline — `make mappings`, the stage that
+# builds every ConceptMap and ValueSet — needs only the standard library plus
+# ucumate, because UCUM is the one target system that is a GRAMMAR rather than
+# an enumeration and so is checked by parsing instead of by $lookup. Everything
+# that talks to a server does so through urllib.
+dependencies = [
+    # ICD-9-CM ships its long descriptions as RTF.
+    "striprtf>=0.0.32",
+    # The UCUM parser. Gates conceptmaps/units-ucum.csv offline, which is what
+    # makes the units table the only one here whose every row is verifiable
+    # without a terminology server. Needs a JVM (Java 21+) at runtime.
+    "ucumate>=1.0.8",
+]
+
+# The occurrence and value-shape extractions, and ONLY those. They run on the
+# HPC node against the full MIMIC-on-FHIR Delta warehouse and are the one part
+# of this repo that needs Spark; their outputs are committed, so nothing in the
+# everyday pipeline imports these. Kept out of the default install because
+# pathling drags in pyspark and a JVM toolchain that a laptop build never uses.
+#
+#   uv sync --extra hpc
+[project.optional-dependencies]
+hpc = ["pathling>=9.8.0"]
+
+# The occurrence extractor's inventory export is pure over collected counts, so
+# its whole artifact contract is testable with no Spark, no warehouse and no
+# queue slot — which is the only way to check it at all, since the real
+# extraction runs once against data no laptop holds.
+#
+#   make test
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

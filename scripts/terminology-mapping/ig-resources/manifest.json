@@ -1,0 +1,325 @@
+{
+ "description": "The MIMIC IG resources this repo reads. Discovered transitively from conceptmaps/lib/streams.py and occurrences/elements.json by sync_ig_resources.py -- never hand-edited. Refresh with `make sync-ig MIMIC_IG_DIR=...`; verify with `make verify-ig`.",
+ "synced": "2026-09-02",
+ "ig_dir": "/Users/nau025/Documents/mimic-profiles",
+ "ig_commit": "0a19fcb5257b171922895cd7208e337a05accd47",
+ "ig_branch": "terminology-mapping-extraction",
+ "ig_dirty": true,
+ "files": [
+  {
+   "path": "CodeSystem-mimic-chartevents-d-items.json",
+   "sha256": "315af74a2c41890ffa714023e7a3aec396d60f589fe8c5d0fe4b4af93f3ffe9a",
+   "bytes": 300495,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-d-labitems.json",
+   "sha256": "ce3fcd39180b100fe5e3a12b310a5d863afab526fd78fd4f9467651a00aeee79",
+   "bytes": 144137,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-diagnosis-icd10.json",
+   "sha256": "0873cdd9065a59b628fe306c712d32675e5be0f20cd95770ae93fb02436ba733",
+   "bytes": 1890987,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-diagnosis-icd9.json",
+   "sha256": "46752b10846e5750eec8985ed16850c2e25d38b81ea88391eb6d7a24ee834a2a",
+   "bytes": 853468,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-lab-fluid.json",
+   "sha256": "14f5b4d55247f202cb0e5e73bc763c88dac9d1a7e6c6b8155a8655846353bb49",
+   "bytes": 1568,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-etc.json",
+   "sha256": "23f1b69f0a780a10f9f688ced927ae75e11d45ace1540412392a70bb54bca984",
+   "bytes": 149350,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-formulary-drug-cd.json",
+   "sha256": "92fbaea40178c4defec98f3c781569df0c724adad8bb767bef94d8b853ecdf71",
+   "bytes": 413856,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-gsn.json",
+   "sha256": "33e69403d56d9586a28078be05f9e91f8eebc7169579343b4e81d2951975543f",
+   "bytes": 897664,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-icu.json",
+   "sha256": "42c8be2f4af64c4de0edbf936875c0c499006a5ac995c199b7e209f22de352b8",
+   "bytes": 44929,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-name.json",
+   "sha256": "ddfa08ed8f690acd4d99eb68f86ad718cb2d062d4ee937e9affe4d57f7863318",
+   "bytes": 1039015,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-ndc.json",
+   "sha256": "b97f76e43032d0ce9c09807111f34494554842eabc534bd64e23dd366969c0b2",
+   "bytes": 564809,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-medication-poe-iv.json",
+   "sha256": "1c53c468d1d56fdd7d6abf82f1cd52ef4287ab7cd0626a83ed466cdc340375b9",
+   "bytes": 734,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-microbiology-antibiotic.json",
+   "sha256": "5bcf1725e121df41f96a59ef1c194a771485bb1f179a5626bd8bb72ddf8c536d",
+   "bytes": 2972,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-microbiology-organism.json",
+   "sha256": "7a775861073d9e15cda326a1647748f7af3f34b48669e3926e45b3b20100c861",
+   "bytes": 64818,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-microbiology-test.json",
+   "sha256": "1e79c10c02525297ab871615090b6bc34b23ebe5c75d17937895deb57675051e",
+   "bytes": 18362,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-procedure-icd10.json",
+   "sha256": "5f7fec81f5625a34d246e91c8e4d57518fdaa3107872f6f83ba0ad3dc2ea22b5",
+   "bytes": 1443837,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-procedure-icd9.json",
+   "sha256": "360438cedc2a93d53e665a555fd446be1d510d881005fb946590bf6eb2c38ecb",
+   "bytes": 291541,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-spec-type-desc.json",
+   "sha256": "bc929a5750c9e39bb9cbd49ec5a6a667356e0cd2c61312ee4c1cd9c6e9723e45",
+   "bytes": 10123,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "CodeSystem-mimic-units.json",
+   "sha256": "1276fafe7648d110f3167dca3de63c21cbc851af39fec3de6c173de6561fc4e5",
+   "bytes": 42889,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-chartevents-d-items.json",
+   "sha256": "c2c9fd855bfb64aeafdf82f7000c202b9f3df29e2b0917dbab230d1894536ddc",
+   "bytes": 615,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-d-labitems.json",
+   "sha256": "bf621eb926b1ffe51509120cf7ef02055db14dbfe9179cd9af4e8c8bf36075cb",
+   "bytes": 560,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-datetimeevents-d-items.json",
+   "sha256": "a21d4e43ace1a7fef360fb8b5ef3ad51d53f37f2616726bcfe16905740247559",
+   "bytes": 29327,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-diagnosis-icd.json",
+   "sha256": "e178a0efcd579ab0e8d9e91edb54b545ec1cff3951c741584c5fe8e492d34dfe",
+   "bytes": 600,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-administration-merged-code.json",
+   "sha256": "94f6b5bd81ead021232fcaf402e6feaeef663a1e5f26cd4f11f3aff1a2a939e0",
+   "bytes": 871,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-code.json",
+   "sha256": "533249c2652af66961d85f1707676d306dd408b6e7c4bf79acfdff4151128b2d",
+   "bytes": 1375,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-dispense-merged-code.json",
+   "sha256": "35844885882718ce8defd265907c78e9fe6c3e6813e9f0bfdf6ef7bfef154658",
+   "bytes": 849,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-etc.json",
+   "sha256": "f4e2ddf05077dbb19913bae1819d7b597ec116d2a00ee4f4cedb76b46e89204a",
+   "bytes": 611,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-gsn.json",
+   "sha256": "6ca131a8fbbe853b94cb632dc4ed9628f35b4e74e6f7e5158b75ebc6746de2cb",
+   "bytes": 582,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-request-code.json",
+   "sha256": "759734f283dcfc746ce206737e9f5e52bf148cff8d013bd6447b98aa7a263c60",
+   "bytes": 1477,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication-with-unknown.json",
+   "sha256": "f5858b29f6c7ba194603f71780542f7e6dc70e8a0ab0f939f9eca3d2d82e3c1a",
+   "bytes": 1056,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-medication.json",
+   "sha256": "425b357728ba8c6ee19d96360d0cdfc6ae556ef369688c015377e7e1441735fd",
+   "bytes": 1188,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-microbiology-antibiotic.json",
+   "sha256": "27df52a8a32cab4e7089843d33a33b4706ed71fcaa10be3acd5d953a6d26e98e",
+   "bytes": 657,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-microbiology-organism.json",
+   "sha256": "5a1abb58f07a6b85fcdb1bfca08e0e3221cb112585c3c672e7148db5735202df",
+   "bytes": 630,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-microbiology-test.json",
+   "sha256": "0732b09302e282f581c7ac6a8c3ad0fe6464d73c9efd8894f0cd13bb52eb2610",
+   "bytes": 603,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-observation-component-vital.json",
+   "sha256": "cd6d1a722506ea4bfe43b270a138a78064bb731b3056207b8eb37644700a05f8",
+   "bytes": 759,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-observation-merged-code.json",
+   "sha256": "ae1c3a64df77081a6c7f990561c26ab75c9d3d07be045f010e99e327deedbca3",
+   "bytes": 1786,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-observation-type-ed.json",
+   "sha256": "b0deec42c310f4c0bef8909071c417637be882e08ee6dea6f3f69bdbec396a94",
+   "bytes": 914,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-observation-type-vital.json",
+   "sha256": "e28a97f88c2b9d39de068a3bd58ca6e3925d1659f1db165c7e3a93ea6ce2198c",
+   "bytes": 1050,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-outputevents-d-items.json",
+   "sha256": "60beb4370878d05fd37db3265d49217140f640684a3f9b86063aa3c927618a1c",
+   "bytes": 11240,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-procedure-icd.json",
+   "sha256": "7a1977f8c374bc74bd828b81b8177ffa05fc052614423b220777c7795f275145",
+   "bytes": 710,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-procedure-merged-code.json",
+   "sha256": "ec82a66cdb4fac23a31c717b0fd0cdcb84c24aee3e2d363bd6826c4f4de96ae5",
+   "bytes": 905,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-procedure-types-ed.json",
+   "sha256": "7d2a4c5cfa21a37b8f650753b8a40cad97cbfb6af50efb1a1c166d6b937f5e0b",
+   "bytes": 749,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-procedureevents-d-items.json",
+   "sha256": "b1a559557d96b5a0f879918d672737c4042fa4ac8a70036831659e8b39e7faad",
+   "bytes": 24638,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-quantity-code.json",
+   "sha256": "cde631476a1f393b13d89a311bdd416469cd797b52e2e3866da2ae7890c2914d",
+   "bytes": 3035,
+   "origin": "fsh-generated",
+   "content_changed": "2026-09-02"
+  },
+  {
+   "path": "ValueSet-mimic-specimen-type.json",
+   "sha256": "06d31e158a5f6c3589ad6fc95570e6b81735aebad39085fdd1d59eb601ec4cd0",
+   "bytes": 725,
+   "origin": "input/resources",
+   "content_changed": "2026-09-02"
+  }
+ ]
+}

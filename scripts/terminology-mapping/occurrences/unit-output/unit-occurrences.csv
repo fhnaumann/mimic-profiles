@@ -1,0 +1,546 @@
+location,resource_type,system,code,unit,occurrences
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg,mg,18746275
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml,ml,4813730
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL,mL,2894194
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UNIT,UNIT,1431911
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,dose,dose,795012
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq,mEq,745077
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg,mcg,661993
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g,g,652803
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units,Units,565636
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units,units,541620
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TAB,TAB,401689
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,NEB,NEB,372248
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gm,gm,371952
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DROP,DROP,220121
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Appl,Appl,210377
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,grams,grams,195035
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CAP,CAP,145208
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PUFF,PUFF,126719
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PTCH,PTCH,106692
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,INH,INH,96067
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SPRY,SPRY,71378
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PKT,PKT,71195
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mmol,mmol,62471
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq.,mEq.,51311
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,LOZ,LOZ,20481
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,in,in,18925
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TPN Bag,TPN Bag,17646
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TROC,TROC,13194
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,,,12936
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/day,mg/day,10178
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,L,L,9805
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,WAF,WAF,7454
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/h,mcg/h,6547
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Million Units,Million Units,6448
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg PE,mg PE,4090
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,%,%,3925
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Enema,Enema,3867
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,FILM,FILM,3528
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\ 0 mg,mg\ 0 mg,3291
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Neb,Neb,2357
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SUPP,SUPP,2333
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,unit,unit,1602
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/hr,mL/hr,1430
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PPN Bag,PPN Bag,586
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tab,tab,443
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/hr,mg/hr,414
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,% of current infusion rate,% of current infusion rate,402
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Dose,Dose,398
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gtt,gtt,391
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PAD,PAD,381
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/actuation,mcg/actuation,351
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,drop,drop,291
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,meq,meq,291
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GUM,GUM,218
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/min,mcg/min,183
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,appl,appl,159
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units Humalog,Units Humalog,150
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PUMP,PUMP,140
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/mL,mg/mL,139
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0mg,mg/0mg,136
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units Regular,Units Regular,128
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,VIAL,VIAL,115
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/24h,mg/24h,114
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/2 mL,mg/2 mL,98
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,60mg,60mg,93
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,unit/gram,unit/gram,88
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,million units,million units,80
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,EA,EA,79
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units\ 0 units,units\ 0 units,78
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,IU,IU,71
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg /40 mg,mg /40 mg,68
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AMP,AMP,61
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,STCK,STCK,59
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/ 0 mg,mg/ 0 mg,59
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/5 mL,mg/5 mL,58
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TC,TC,57
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units VWF:RCo,Units VWF:RCo,57
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gram,gram,53
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cap,cap,52
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PACK,PACK,42
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units Insulin Glargine,Units Insulin Glargine,41
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,unit/mL,unit/mL,40
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PUFFS,PUFFS,37
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UNIT/HR,UNIT/HR,36
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AERO,AERO,34
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,unit-mg-unit,unit-mg-unit,34
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BAG,BAG,32
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,drops,drops,31
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/40mg,mg/40mg,31
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tabs,tabs,30
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,INJ,INJ,28
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MG,MG,28
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/24 hr,mg/24 hr,26
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-120000 unit,-120000 unit,25
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEQ,mEQ,25
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DEV,DEV,23
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/6 mL (6 mL),mg/6 mL (6 mL),22
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(3 mL),(3 mL),21
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DRP,DRP,21
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,capsules,capsules,21
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,spacer,spacer,21
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,180000 unit,180000 unit,20
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq / 500 mL NS,mEq / 500 mL NS,20
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units/hr,units/hr,20
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(300 mcg),(300 mcg),19
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0 mg,mg/0 mg,19
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,U,U,18
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tube,tube,18
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Mg,Mg,16
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/24 hour,mg/24 hour,16
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,per L,per L,15
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,bag,bag,14
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/54mg,mg/54mg,14
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g\ 0 g,g\ 0 g,13
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/20 mL,mg/20 mL,13
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ounces,ounces,13
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,"(1,000 mg)","(1,000 mg)",12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GEL,GEL,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MU,MU,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PKG,PKG,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/hr,mcg/hr,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/mL,mcg/mL,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0.3 mL,mg/0.3 mL,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,u,u,12
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq / 500 mL D5W,mEq / 500 mL D5W,11
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tablets,tablets,11
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(0.6 mg/mL),(0.6 mg/mL),10
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DOSE,DOSE,10
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Drop,Drop,10
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,billion cell,billion cell,10
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cell,cell,10
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,International Units,International Units,9
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SCOOP,SCOOP,9
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg-mcg,mg-mcg,9
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0.67 mL,mg/0.67 mL,9
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(84)/10 mcg (7),(84)/10 mcg (7),8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DROPS,DROPS,8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/2 mL,mcg/2 mL,8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0mgs,mg/0mgs,8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/3 mL,mg/3 mL,8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,pg,pg,8
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units/Liter,Units/Liter,7
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cc,cc,7
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gram/118 mL,gram/118 mL,7
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg base)/3 mL,mg base)/3 mL,7
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GR,GR,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Grams,Grams,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MD to order daily dose,MD to order daily dose,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Unit,Unit,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units Insulin NPH,Units Insulin NPH,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq / 250 mL D5W,mEq / 250 mL D5W,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\ 40mg,mg\ 40mg,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mgmg,mgmg,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,puff,puff,6
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(25 mg/2.5gram),(25 mg/2.5gram),5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,0/mg,0/mg,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,15000 unit,15000 unit,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Cap,Cap,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PEN,PEN,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PTCHS,PTCHS,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,caps,caps,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/dose,mcg/dose,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,puffs,puffs,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tablet,tablet,5
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-60000 unit,-60000 unit,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,/hour,/hour,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GTT,GTT,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ML,ML,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Million Cells,Million Cells,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,NG/,NG/,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gram/30 mL,gram/30 mL,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg\ 0 mcg,mcg\ 0 mcg,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/5 mL (5 mL),mg/5 mL (5 mL),4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/ml,mg/ml,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,vial,vial,4
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(0.06 %),(0.06 %),3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(1250 mg),(1250 mg),3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,/0mg,/0mg,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BTL,BTL,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,JAR,JAR,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SOLN,SOLN,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gmgm,gmgm,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,lozenge,lozenge,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/0.5,mcg/0.5,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg/min,mcg/kg/min,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/spray,mcg/spray,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg-mg,mg-mg,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/g,mg/g,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/omg,mg/omg,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,soak,soak,3
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(18 mg/3 mL),(18 mg/3 mL),2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(21)/75 mg (7),(21)/75 mg (7),2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(50 mg/5 gram),(50 mg/5 gram),2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-200 mg,-200 mg,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,0.8 mg,0.8 mg,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CAN,CAN,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,KIT,KIT,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Notify,Notify,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UDCUP,UDCUP,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UNITS,UNITS,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units Insulin 70 / 30,Units Insulin 70 / 30,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,application,application,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cm3,cm3,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,enema,enema,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,film,film,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gr,gr,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,iu/0iu,iu/0iu,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq / 100 mL SW,mEq / 100 mL SW,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq / 250 mL NS,mEq / 250 mL NS,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/ml,mcg/ml,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg ER,mg ER,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0.5 mL,mg/0.5 mL,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/actuation,mg/actuation,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/min,mg/min,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/day,ml/day,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,neb,neb,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,packet,packet,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,pills,pills,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tsp,tsp,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,uL,uL,2
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,%(50 mg/5 gram),%(50 mg/5 gram),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(10 mg/mL),(10 mg/mL),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(100 mcg/mL),(100 mcg/mL),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(24)/75 mg (4),(24)/75 mg (4),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(4 mg/mL),(4 mg/mL),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(500 mg),(500 mg),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(60 mg/mL),(60 mg/mL),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(65 mg iron),(65 mg iron),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,(morphine),(morphine),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,"-109,000 unit","-109,000 unit",1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-12 gram/160 mL,-12 gram/160 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-125 unit,-125 unit,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,1 mg/mL,1 mg/mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,"180,000 unit","180,000 unit",1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,4ML,4ML,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,50,50,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,61500 unit,61500 unit,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AERA,AERA,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DROPs,DROPs,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ENEMA,ENEMA,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Enemas,Enemas,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,G,G,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,INCH,INCH,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Tab,Tab,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Umits,Umits,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,_UNIT,_UNIT,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,bo,bo,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,bottle,bottle,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,capsule,capsule,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,chamber,chamber,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cp,cp,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cps,cps,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,drop ou,drop ou,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ea,ea,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gg,gg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gm/hr,gm/hr,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gram/100 mL,gram/100 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gummies,gummies,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,kg,kg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,lozenges,lozenges,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq in 1L,mEq in 1L,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq/15 mL,mEq/15 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq/200 mL NS,mEq/200 mL NS,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEqmEq,mEqmEq,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg/hr,mcg/kg/hr,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcq,mcq,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg (1 mL),mg (1 mL),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg (950 mg),mg (950 mg),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg or 92mg,mg or 92mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg-35 mcg (28),mg-35 mcg (28),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg-mg-mcg-mg,mg-mg-mcg-mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/0.6mL,mg/0.6mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/100mg,mg/100mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/15 mL,mg/15 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/2.625 mL,mg/2.625 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/250 mL,mg/250 mL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/5,mg/5,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/61mg,mg/61mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/mL (1 %),mg/mL (1 %),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/mL (4 %),mg/mL (4 %),1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\40 mg,mg\40 mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\960 mg,mg\960 mg,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,milligrams,milligrams,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/hr,ml/hr,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mls,mls,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mm^3,mm^3,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,nL,nL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,nMol/ml/min,nMol/ml/min,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,pL,pL,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,powder,powder,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,sheet,sheet,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tABS,tABS,1
+MedicationAdministration.dosage.dose,MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,tiwst,tiwst,1
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/hour,mL/hour,2956647
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg/min,mcg/kg/min,1100986
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units/hour,units/hour,231307
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/hour,mg/hour,133038
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/hour,mcg/hour,128690
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg/hour,mcg/kg/hour,104627
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/min,mg/min,56744
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq./hour,mEq./hour,51312
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,grams/hour,grams/hour,35291
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/kg/hour,mg/kg/hour,18902
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,grams/min,grams/min,1621
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/min,mL/min,303
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ng/kg/min,ng/kg/min,302
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/min,mcg/min,222
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/kg/hour,mL/kg/hour,52
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units/min,units/min,3
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/kg/min,mg/kg/min,2
+MedicationAdministration.dosage.rate[x],MedicationAdministration,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units/kg/hour,units/kg/hour,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg,mg,6980935
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL,mL,2470689
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UNIT,UNIT,959336
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq,mEq,395202
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gm,gm,357365
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g,g,316177
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TAB,TAB,234988
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg,mcg,142498
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Appl,Appl,139186
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,NEB,NEB,132472
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PKT,PKT,63564
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PUFF,PUFF,49196
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mmol,mmol,46652
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PTCH,PTCH,43595
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CAP,CAP,42270
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DROP,DROP,39296
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SPRY,SPRY,34799
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,INH,INH,25774
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,LOZ,LOZ,14638
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,L,L,12312
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,dose,dose,11050
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml,ml,10195
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Enema,Enema,6810
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/h,mcg/h,5421
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,VIAL,VIAL,5251
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/hr,mcg/hr,5125
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,in,in,4953
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg PE,mg PE,3115
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SUPP,SUPP,2738
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,WAF,WAF,2323
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/day,mg/day,1968
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MD to order daily dose,MD to order daily dose,1732
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TROC,TROC,1619
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,STCK,STCK,1601
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units,units,1538
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,%,%,1470
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BAG,BAG,978
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,gtt,gtt,627
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/hr,mg/hr,594
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,FILM,FILM,505
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SYR,SYR,437
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\ 0 mg,mg\ 0 mg,410
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/mL,mg/mL,236
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,million units,million units,235
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg/min,mcg/kg/min,150
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/ml,mg/ml,127
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Floor Stock Bag,Floor Stock Bag,124
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/hr,mL/hr,108
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/hr,ml/hr,93
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AMP,AMP,84
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DRP,DRP,76
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Million Units,Million Units,63
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GUM,GUM,62
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UDCUP,UDCUP,50
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,EA,EA,49
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/ 0 mg,mg/ 0 mg,49
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PKG,PKG,43
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/24h,mg/24h,43
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BTL,BTL,41
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,INJ,INJ,37
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units VWF:RCo,Units VWF:RCo,37
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/mL,mcg/mL,31
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/ml,mcg/ml,28
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PACK,PACK,27
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg /40 mg,mg /40 mg,27
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/kg,mg/kg,25
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PUMP,PUMP,21
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,KIT,KIT,20
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TUBE,TUBE,17
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/40mg,mg/40mg,17
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CREA,CREA,15
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units/Liter,Units/Liter,15
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,IU,IU,13
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AERO,AERO,12
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg/kg,mcg/kg,12
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,UNIT/HR,UNIT/HR,10
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ENE,ENE,9
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,_UNIT,_UNIT,9
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SOLN,SOLN,8
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,TC,TC,8
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CAN,CAN,7
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,nanogram,nanogram,7
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CUP,CUP,5
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/100 mL,mg/100 mL,5
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DBTL,DBTL,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GEL,GEL,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GR,GR,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,LIQ,LIQ,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SCOOP,SCOOP,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/250 mL,mg/250 mL,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/m2,mg/m2,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\ 40mg,mg\ 40mg,4
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CON,CON,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,DEV,DEV,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MU,MU,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PAD,PAD,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PEN,PEN,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/Lumen,mL/Lumen,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/mL,mL/mL,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mcg\ 0 mcg,mcg\ 0 mcg,3
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BULK,BULK,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CONC,CONC,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CRE,CRE,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,JAR,JAR,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,LOT,LOT,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Million Cells,Million Cells,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,OINT,OINT,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,PWDR,PWDR,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SUSP,SUSP,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SYRP,SYRP,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/dose,mg/dose,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\960 mg,mg\960 mg,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,nanograms/kg/minute,nanograms/kg/minute,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,scp,scp,2
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,-,-,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,/ 0 Units,/ 0 Units,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,AERA,AERA,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,CPT,CPT,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ERT,ERT,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,NEEDLE,NEEDLE,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,RING,RING,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SPG,SPG,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,STRP,STRP,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,SWAB,SWAB,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Units/kg,Units/kg,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/Day,mL/Day,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/Syringe,mL/Syringe,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg PE/kg,mg PE/kg,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/250 ml,mg/250 ml,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/50 mL,mg/50 mL,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/50 ml,mg/50 ml,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/500 ml,mg/500 ml,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\ 150 mg,mg\ 150 mg,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg\40 mg,mg\40 mg,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/day,ml/day,1
+MedicationRequest.dosageInstruction.doseAndRate.dose[x],MedicationRequest,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units\ 0 units,units\ 0 units,1
+Observation.component.value[x],Observation,http://unitsofmeasure.org,mm[Hg],mm[Hg],3779500
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,,,52739035
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,%,%,26134655
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mmHg,mmHg,25401973
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/dL,mg/dL,22521672
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mEq/L,mEq/L,19977995
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,K/uL,K/uL,9874714
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,insp/min,insp/min,9642142
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,bpm,bpm,7827348
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g/dL,g/dL,5776209
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,IU/L,IU/L,5409097
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,fL,fL,4521365
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml,ml,4234967
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,sec,sec,4162356
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cmH2O,cmH2O,3351546
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,m/uL,m/uL,3184074
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,pg,pg,3160643
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,L/min,L/min,2828993
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL,mL,2673591
+Observation.value[x],Observation,http://unitsofmeasure.org,/min,beats/minute,1902897
+Observation.value[x],Observation,http://unitsofmeasure.org,/min,breaths/minute,1879951
+Observation.value[x],Observation,http://unitsofmeasure.org,%,%,1833265
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,units,units,1794987
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,°F,°F,1515987
+Observation.value[x],Observation,http://unitsofmeasure.org,[degF],F,1401314
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mmol/L,mmol/L,1243416
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,#/hpf,#/hpf,1082594
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mm Hg,mm Hg,1035601
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/hr,ml/hr,993580
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ng/mL,ng/mL,979335
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cm,cm,968376
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,°C,°C,958887
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g/dl,g/dl,428839
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Ratio,Ratio,316399
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,uIU/mL,uIU/mL,311106
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,#/uL,#/uL,292327
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ug/dL,ug/dL,284326
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,kg,kg,277540
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/min,ml/min,242012
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,pg/mL,pg/mL,228371
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ug/mL,ug/mL,190873
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,cmH2O/L/seconds,cmH2O/L/seconds,173637
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/L,mg/L,156934
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mA,mA,138292
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ng/dL,ng/dL,135949
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,#/lpf,#/lpf,113224
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mOsm/kg,mOsm/kg,113115
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mV,mV,98445
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mm/hr,mm/hr,61066
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/g,mg/g,49266
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/mg,mg/mg,44508
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,min,min,44125
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Inch,Inch,33707
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mIU/mL,mIU/mL,27655
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,U/mL,U/mL,26979
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/beat,mL/beat,20836
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mmHg.,mmHg.,19059
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,umol/L,umol/L,15545
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,RPM,RPM,15444
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,L/min/m2,L/min/m2,15070
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mg/24hr,mg/24hr,14607
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,IU/mL,IU/mL,13650
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ng/mL FEU,ng/mL FEU,8826
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,nmol/L,nmol/L,7034
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,/min,/min,6579
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/m2,mL/m2,6380
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,dynes.sec.cm-5/m2,dynes.sec.cm-5/m2,3620
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,dynes*sec/cm5/m2,dynes*sec/cm5/m2,3087
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,dynes*sec/cm5,dynes*sec/cm5,2647
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,log10 IU/mL,log10 IU/mL,2571
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,U/g/Hb,U/g/Hb,2514
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,GPL,GPL,2468
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,MPL,MPL,2463
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ml/kg,ml/kg,2376
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,U,U,2106
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,hour,hour,1717
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Liters,Liters,1606
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,lbs,lbs,1462
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ppm,ppm,1290
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,N/A,N/A,1181
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,psi,psi,927
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,log10 copies/mL,log10 copies/mL,629
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,hrs,hrs,624
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,mL/min,mL/min,622
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,kcal/kg,kcal/kg,477
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,g/kg,g/kg,450
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,msec,msec,415
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,log10 cop/mL,log10 cop/mL,313
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,U/L,U/L,257
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,uU/ML,uU/ML,87
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Degree,Degree,77
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,Score,Score,48
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,years,years,26
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,ng/mL DDU,ng/mL DDU,24
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,/hpf,/hpf,15
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,+/-,+/-,6
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,BU,BU,1
+Observation.value[x],Observation,http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-units,kcal/day,kcal/day,1

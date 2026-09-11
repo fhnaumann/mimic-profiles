@@ -1,0 +1,26 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicObservationComponentVital",
+  "id": "mimic-observation-component-vital",
+  "title": "MIMIC-ED Observation Component Types Value Set",
+  "description": "LOINC codes appearing in Observation.component.code of the vital-signs profile (blood pressure panel children).",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-component-vital",
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic blood pressure"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "resourceType": "ValueSet",
+  "status": "draft",
+  "name": "MimicObservationTypeED",
+  "id": "mimic-observation-type-ed",
+  "title": "MIMIC-ED Observation Resource Types Value Set",
+  "description": "Selected codes from LOINC that represent values from the triage table in MIMIC-ED.",
+  "url": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-observation-type-ed",
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "56839-4",
+            "display": "Acuity assessment Narrative"
+          },
+          {
+            "code": "8661-1",
+            "display": "Chief complaint - Reported"
+          },
+          {
+            "code": "98137-3",
+            "display": "Pain assessment report"
+          },
+          {
+            "code": "8884-9",
+            "display": "Heart rate rhythm"
+          }
+        ]
+      }
+    ]
+  }
+}

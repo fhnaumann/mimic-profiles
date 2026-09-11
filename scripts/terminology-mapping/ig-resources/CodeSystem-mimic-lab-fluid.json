@@ -1,0 +1,65 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "mimic-lab-fluid",
+    "language": "en",
+    "url": "http://mimic.mit.edu/fhir/mimic/CodeSystem/mimic-lab-fluid",
+    "version": "2.0",
+    "name": "MimicLabFluid",
+    "title": "MimicLabFluid",
+    "status": "draft",
+    "date": "2022-09-21T13:59:43-04:00",
+    "publisher": "KinD Lab",
+    "description": "The lab fluid that is captured for the specimen",
+    "valueSet": "http://mimic.mit.edu/fhir/mimic/ValueSet/mimic-lab-fluid",
+    "content": "complete",
+    "concept": [
+        {
+            "code": "Stool",
+            "display": "Stool"
+        },
+        {
+            "code": "I",
+            "display": "I"
+        },
+        {
+            "code": "Other Body Fluid",
+            "display": "Other Body Fluid"
+        },
+        {
+            "code": "Q",
+            "display": "Q"
+        },
+        {
+            "code": "Pleural",
+            "display": "Pleural"
+        },
+        {
+            "code": "Urine",
+            "display": "Urine"
+        },
+        {
+            "code": "Blood",
+            "display": "Blood"
+        },
+        {
+            "code": "Bone Marrow",
+            "display": "Bone Marrow"
+        },
+        {
+            "code": "Joint Fluid",
+            "display": "Joint Fluid"
+        },
+        {
+            "code": "Cerebrospinal Fluid",
+            "display": "Cerebrospinal Fluid"
+        },
+        {
+            "code": "Ascites",
+            "display": "Ascites"
+        },
+        {
+            "code": "Fluid",
+            "display": "Fluid"
+        }
+    ]
+}
