@@ -1,16 +1,67 @@
-https://www.cms.gov/medicare/coding-billing/icd-10-codes/icd-9-cm-diagnosis-procedure-codes-abbreviated-and-full-code-titles
-https://archive.cdc.gov/www_cdc_gov/nchs/icd/icd9cm.htm
-https://github.com/OHDSI/MIMIC/blob/main/custom_mapping_csv/gcpt_proc_itemid.csv
+# mimic-terminology-mapping
 
-FINDING for ValueSet  mimic-procedureevents-ditems: A true mapping does not stay within Snomed procedure codes, instead branch out to other codes (like Observation area)
+Turns raw ICD release files into FHIR CodeSystems, and MIMIC-IV's local code
+systems into the **ConceptMaps and enumerated ValueSets** its coded fields
+resolve through — so a `$translate` against a MIMIC `Coding` returns SNOMED CT,
+LOINC, RxNorm, ICD or UCUM.
 
+Eleven bound elements, 28 code populations, ~62,000 source codes. What comes out
+is committed here: the maps, the target value sets, the per-stream worklists
+recording what could **not** be mapped and why, and a coverage table weighted by
+how much data each code actually carries.
 
-# terminology-mapping
+### What this is not
 
-Everything that turns raw ICD release files into FHIR terminology resources, and
-those resources into the ConceptMaps and ValueSets MIMIC's coded fields resolve
-through. Absorbed the former `scripts/terminology-build/` and
-`scripts/icd-migration/` — this is the only home now.
+- **It does not build an Implementation Guide.** The MIMIC IG lives in
+  [`mimic-profiles`](https://github.com/fhnaumann/mimic-profiles). This repo
+  *reads* 45 of its resources (see "The IG snapshot") and publishes alongside
+  it; it runs no SUSHI and no IG Publisher.
+- **It is not a general MIMIC ETL.** It maps terminology. The data itself is
+  assumed to exist already, as MIMIC-on-FHIR.
+- **It does not decide bindings.** Which elements are bound, and to what, is a
+  property of the IG's profiles. This repo reads those bindings and reports
+  where the terminology cannot yet serve them.
+
+### What you need
+
+| | Needed for | Where from |
+|---|---|---|
+| Python 3.14 + [uv](https://docs.astral.sh/uv/) | everything | `uv sync` |
+| **Java 21+** | `units-table` only | any JDK; `ucumate` runs a JVM |
+| **Built ICD CodeSystems** (~517 MB) | **every mapping build** | GitHub release assets, **or** build them yourself (next row). Not committed — too large |
+| ICD releases (~310 MB) | building those CodeSystems | CMS/CDC — see "Source data layout". Not committed |
+| **IG snapshot** | every mapping build | committed in `ig-resources/`; refresh with `make sync-ig` |
+| **code-search** | the `*-table` generators only | a running instance; `$CODE_SEARCH_URL` |
+| **Terminology server** | uploading, and the generators' gates | Ontoserver or equivalent; `$ONTOSERVER_URL` |
+| Occurrence counts | the data-weighted statistics | committed; regenerated only by an HPC run |
+
+**`make mappings` is fully offline** — no server, no network, seconds — but it is
+not dependency-free: every builder checks its targets against the built ICD
+releases in `output/`, and those are gitignored because they run 36–85 MB each.
+A fresh clone therefore has one obstacle, and the builders name it rather than
+guessing (`no CodeSystem-*.json in output/ — run 'make terminology' first`).
+
+### Quickstart
+
+```sh
+cp .env.example .env      # then edit; nothing in it is needed for `make mappings`
+uv sync
+
+# ONE of these two — the mapping builders need the ICD CodeSystems in output/:
+#   a) download CodeSystem-*.json from the GitHub release into output/   (fast)
+#   b) obtain the raw ICD distributions, then build them:
+make verify-inputs        # do my ICD sources match input-manifest.json?
+make terminology          # sources/ -> output/CodeSystem-*.json, no upload
+
+make verify-ig            # the IG snapshot matches its sha256 manifest
+make mappings             # every ConceptMap + ValueSet + the statistics, offline
+```
+
+`make mappings` exits non-zero while any code is unmapped. **That is the gate
+working, not a failure** — 15,063 codes are currently unmapped by decision or
+backlog, each with a reason in `output/unmapped-<stream>.csv`.
+
+Run `make help` for every target.
 
 ## The flow
 
@@ -140,12 +191,12 @@ irreproducibility that check 3 exists to catch. Systems allowed to go
 unversioned are listed in `UNVERSIONED_SYSTEMS`, so that check can tell a
 deliberate omission from a bug rather than skipping it.
 
-Consequence for the source side: because `mimic-procedure-types-ed` is
-FSH-authored, its enumerated ValueSet only exists under `fsh-generated/`, which
-is gitignored. **A clean checkout must run `sushi .` before `make mappings`.** A
-missing FSH-authored source is a hard error, not the warning-and-skip a missing
-`input/resources/` CodeSystem gets — skipping it is precisely how you would end
-up with the map that drops every ED code.
+Consequence for the source side: `mimic-procedure-types-ed` is FSH-authored,
+so in the IG its enumerated ValueSet exists only after `sushi .` — which is one
+of the reasons the enumerations are vendored here instead (see "The IG
+snapshot"). A missing source file is a hard error rather than a warning-and-skip:
+skipping it is precisely how you would end up with the map that drops every ED
+code.
 
 ### `Observation.code` is being built one stream at a time
 
@@ -216,7 +267,7 @@ for two reasons that only show up on the consuming side:
   this repo still passes.
 
 Two maps put each code in exactly the one column that can hold it, and both name
-a `sourceCanonical` published by `scripts/publish-conformance.sh`.
+a `sourceCanonical` the IG publishes rather than this repo.
 
 ### Units are a grammar, not a code list
 
@@ -305,11 +356,11 @@ buy is a canonical identity per element. Same shape as
 sub-types, these disambiguate elements.
 
 Two consequences worth knowing. They are FSH-authored, so they reach a server
-through the IG build and `scripts/publish-conformance.sh`, not through
-`upload.py` (which publishes each map's *target* value set only). And
-`verify_mappings.py` check 5 reads them from `fsh-generated/`, so it needs
-`sushi .` to have run — it says so rather than passing silently when they are
-missing.
+through the IG's own build and deploy, not through `upload.py` (which publishes
+each map's *target* value set only) — which is why the IG's conformance
+resources must be published before these maps. And `verify_mappings.py` check 5
+reads them from the IG snapshot, so `make sync-ig` has to have picked them up —
+it says so rather than passing silently when they are missing.
 
 ### The one rule about rules
 
@@ -408,6 +459,17 @@ single mapping, and any single non-mapping, can be audited from the CSV alone.
 There is **no `equivalence` column**: every mapping a table supplies is
 `relatedto`, set by `lib/assemble.py`. See [Equivalence](#equivalence-relatedto-for-every-table-mapping).
 
+### Open: the SNOMED procedure constraint may be too narrow
+
+Recorded against `mimic-procedureevents-d-items` and not yet acted on: **a true
+mapping of this population does not stay inside SNOMED CT's procedure
+hierarchy.** Some of these flowsheet items are observations rather than
+procedures, and constraining the search to procedures forces a choice between a
+wrong procedure code and no answer at all — the same shape of defect the
+`chartevents` stream handles by being mixed-target (LOINC first, SNOMED where
+LOINC declines). Revisiting it means widening the constraint for the `d-items`
+generator and re-reading the diff, which has not been done.
+
 ### A table is keyed by its source CodeSystem, not by the field that reads it
 
 Two bound elements can share a source CodeSystem. `mimic-medication-name` is one:
@@ -480,7 +542,10 @@ construction.
 ### Why not OHDSI
 
 An earlier version of this table took OHDSI's MIMIC-IV → OMOP CDM crosswalk
-([OHDSI/MIMIC](https://github.com/OHDSI/MIMIC), Apache-2.0) as the primary
+([OHDSI/MIMIC](https://github.com/OHDSI/MIMIC), Apache-2.0; the ICU procedure
+sheet is
+[`custom_mapping_csv/gcpt_proc_itemid.csv`](https://github.com/OHDSI/MIMIC/blob/main/custom_mapping_csv/gcpt_proc_itemid.csv))
+as the primary
 source, with code-search as a gated second opinion, on the ground that a
 published artefact is reproducible where a model-backed service is not. That
 is a real property, and it was the wrong trade: the two disagreed on 45 of the
@@ -648,6 +713,10 @@ and microbiology populations. See the consumer notes.
 ## Running it
 
 ```sh
+make help                 # every target, with a one-line description
+
+make verify-ig            # does ig-resources/ match its sha256 manifest?
+make sync-ig MIMIC_IG_DIR=../mimic-profiles   # refresh it from an IG checkout
 make verify-inputs        # do my ICD sources match input-manifest.json?
 make update-manifest      # re-pin them after adding or changing a release
 
@@ -898,7 +967,7 @@ When it isn't, the fix is almost always a **missing input**, not a missing
 judgement — build the release that has the code:
 
 ```sh
-ls scripts/terminology-mapping/sources/icd10pcs/      # which years do I have?
+ls sources/icd10pcs/                                  # which years do I have?
 make terminology ICD10PCS_YEARS="2016 2017 2018"      # build the missing one
 make mappings                                          # re-check
 ```
@@ -906,8 +975,14 @@ make mappings                                          # re-check
 ## Layout
 
 ```
+Makefile            one target per stage; `make help` lists them
+pyproject.toml      stdlib + striprtf + ucumate; pathling only in the [hpc] extra
+.env.example        every environment variable, and which stage reads it
 sources/            external release files, gitignored; per code system, per year
   icd9/{2012,2014}/  icd10cm/{2016..2019,2024}/  icd10pcs/{2016,2018,2019,2020}/
+ig-resources/       the 45 IG resources every enumeration is read from, committed
+  manifest.json     sha256 + origin per file; written by sync_ig_resources.py
+sync_ig_resources.py  refreshes that snapshot from an IG checkout (make sync-ig)
 common/             shared helpers (TLS, HTTP, upload + $lookup smoke test, CLI)
 terminology/        stage 1 — source files -> CodeSystem, one folder per system
   icd9/  icd10cm/  icd10pcs/
@@ -1080,7 +1155,7 @@ artefacts and checks properties of them:
 5. **No PCS grouper mappings** — the dot-less collision, checked explicitly.
 6. **Completeness against the binding** — every code the element's bound
    ValueSet admits has an entry in its ConceptMap, mapped or `unmatched`;
-   needs `sushi .` for the FSH-authored facades and says so otherwise.
+   needs the facade ValueSets in the IG snapshot and says so otherwise.
 7. **Stream ↔ map agreement** — every ConceptMap consuming a stream carries
    the IDENTICAL answers for that stream's codes. A stream resolves once
    (lib/assemble.py); two maps disagreeing means an artefact is stale, which
@@ -1112,6 +1187,94 @@ green `verify-curated` on a freshly generated table confirms the generator's
 gate rather than discovering something new. It stays worth running: it is what
 catches a table going stale as SNOMED retires concepts under a committed CSV.
 
+## The IG snapshot
+
+Every source enumeration is read from the MIMIC IG, never written out in a
+builder — a literal would drift from the profiles the map serves and nothing
+would notice. Those resources are **committed here**, in `ig-resources/`: 45
+files, one flat directory, each pinned by sha256 in `ig-resources/manifest.json`.
+
+They come from two places in an IG checkout, and the difference is why the
+snapshot exists:
+
+| Origin | Count | What |
+|---|---|---|
+| `input/resources/` | 34 | the upstream MIMIC CodeSystems and their bare ValueSets — `mimic-d-items`, `mimic-medication-gsn`, `mimic-units`, … |
+| `fsh-generated/resources/` | 11 | FSH-authored: the four ED/vitals enumerations, and the **facade ValueSets** that give each bound element one `sourceCanonical` |
+
+The second group is **gitignored in the IG** — it exists only after `sushi .`
+has run. Reading it directly meant a build here depended on the state of another
+repo's working tree, which is not a dependency a reproducible pipeline can have.
+With the snapshot, `make mappings` needs no Node, no SUSHI and no sibling
+checkout, and drift from the IG becomes a reviewable diff on a manifest.
+
+```sh
+make verify-ig                              # offline; sha256-check the snapshot
+make sync-ig MIMIC_IG_DIR=../mimic-profiles # refresh it (that checkout needs `sushi .`)
+make sync-ig MIMIC_IG_DIR=../mimic-profiles ARGS=--dry-run
+```
+
+`sync-ig` is **not** part of any build. It writes a build input, so it has the
+same standing as a table generator: run it deliberately, read the diff, commit.
+
+**The closure is discovered, not listed.** `sync_ig_resources.py` computes the
+file set from the two places that declare what is read — each stream's
+`file`/`valueset_file` in `conceptmaps/lib/streams.py`, and each bound element's
+`bound_valuesets` in `occurrences/elements.json` — then closes it transitively
+over `compose.include.valueSet` and over bare includes. A hand-kept list is
+exactly the registry this repo's stance argues against, and its failure mode is
+silent: a forgotten file does not error, it makes a stream resolve against
+nothing and report 0% coverage.
+
+**Adding a bound element still needs an IG change first.** Every map names one
+bound ValueSet as its `sourceCanonical`, and for the elements whose binding sits
+at a coding slice or spans merged sub-types, that ValueSet is a facade minted in
+the IG's `input/fsh/`. So the order is: mint the facade there, run `sushi .`,
+`make sync-ig` here, then write the builder. Those facades are **never bound to
+anything** — deleting one as "unused" would break a map in this repo.
+
+## The code-search service
+
+The mapping tables are proposed by **code-search**, a model-backed service that
+takes a label and a constraint and returns a candidate code with a confidence.
+It is needed by the `*-table` generators and by **nothing else** — never by
+`make mappings`, which reads the committed tables.
+
+Set `$CODE_SEARCH_URL` (default `http://localhost:3000`). Two endpoints:
+
+| Endpoint | Used for |
+|---|---|
+| `POST /api/v1/find-code` | the proposal. Body: `{text, url, system, max_candidates, effort}`, where `url` is the constraint as a [VCL](https://fhir.org/VCL) implicit ValueSet canonical |
+| `GET /api/v1/info` | the service's self-reported configuration, recorded in the generation log so a table's provenance names what produced it |
+
+**What the service proposes is not what gets committed.** Every generator puts
+the answer through a gate before writing a row — the code must be inside the
+constraint the service was told to search (asserted with `$validate-code`, not
+trusted), it must exist, be active, and carry a confirmed display, and it must
+clear a per-stream confidence threshold. Rows that fail keep their proposal in
+the `codesearch_*` provenance columns with a reason, so a decline is auditable
+rather than invisible. That gate is why the generators need a terminology server
+as well as code-search.
+
+## The terminology server
+
+Two different jobs, and only the second changes anything:
+
+**Reading**, during table generation and verification —
+`GET /CodeSystem/$lookup`, `GET /ValueSet/$validate-code`,
+`POST /ValueSet/$expand` (the last one builds the committed RxNorm term index).
+
+**Writing**, only ever from `make upload-mappings` —
+`PUT /{ResourceType}/{id}`, value sets before the maps that name them.
+
+Set `$ONTOSERVER_URL`. A server behind a corporate CA needs `--ca-bundle`
+(or `$SSL_CERT_FILE`); `--insecure` skips verification entirely.
+
+**The server must already hold the IG's own ValueSets.** Every map's
+`sourceCanonical` points into `http://mimic.mit.edu/fhir/mimic/ValueSet/...`,
+which this repo references but does not publish — those are deployed from
+`mimic-profiles`. Publish the IG's conformance resources first, then the maps.
+
 ## Source data layout (not committed)
 
 The raw distributions are gitignored — download them and lay them out under
@@ -1122,7 +1285,7 @@ into the year folder as-is regardless of the folder names inside.
 Verify what you have matches what the committed resources were built from:
 
 ```sh
-uv run scripts/terminology-mapping/verify_inputs.py
+make verify-inputs
 ```
 
 Sources:
@@ -1151,10 +1314,30 @@ Not committed: `CodeSystem-*.json` (36–85 MB each — attached as assets to th
 GitHub release for the IG version they belong to; download from there to use them
 without rebuilding).
 
-**Rebuilds from unchanged inputs are byte-identical.** `date` is derived from the
-newest input mtime rather than from `now`, so a re-run never churns the diff and
-`git diff` on a committed artefact always means a real change. `make mappings &&
-git diff --exit-code` is a valid test.
+**Rebuilds from unchanged inputs are byte-identical**, with one caveat below.
+Everything except `date` is a pure function of the committed inputs: no network,
+no `now`, no ordering that depends on a dict's iteration. `make mappings &&
+git diff --exit-code` is the test.
+
+**The caveat is `date`, and it is a real one.** `lib/built.py` derives each
+resource's `date` from the newest **mtime** among that population's inputs,
+which was chosen so a re-run would not churn the diff the way `now` would. But
+an mtime is not a property of the content: it does not survive a `git clone`,
+and a generator that rewrites a file with identical bytes still moves it. So on
+a fresh clone every input carries the checkout time and **every `date` jumps at
+once**, failing the test above wholesale — not because anything changed, but
+because nothing records when it last did.
+
+Two smaller versions of the same thing show up in normal work: running
+`make units-table` moves the units map's date even when the CSV is unchanged,
+and before the IG snapshot existed the observation map's date tracked *when
+`sushi .` last ran*, because its newest inputs were gitignored build artefacts.
+
+`ig-resources/manifest.json` already records a `content_changed` date per file,
+moved only when the sha256 moves, which is the signal `date` should be reading.
+Wiring the rest of the inputs the same way — or deriving the date from git — is
+open work; until then, treat a whole-repo `date` churn as noise and check
+whether anything else in the diff moved.
 
 That test used to have a wrinkle, now fixed: the ConceptMap stage and the
 ValueSet stage both wrote `unmapped-<field>.csv` with different columns, and
@@ -1181,10 +1364,12 @@ collision on a shared terminology server if upstream ever publishes at the same
 URL. Referencing their canonicals is fine, and `sourceCanonical` deliberately
 still points at their bound value sets.
 
-The consequence is that these resources cannot live in `input/resources/`: the IG
-publisher requires every resource it carries to have a url under the IG canonical.
-They are uploaded straight to the terminology server instead, and nothing in
-`input/fsh/` references them, so the IG build is unaffected.
+The consequence is that these resources could not live in the IG's
+`input/resources/` even when they shared a repo with it: the IG publisher
+requires every resource it carries to have a url under the IG canonical. They
+are uploaded straight to the terminology server instead, and nothing in the IG's
+`input/fsh/` references them, so the IG build is unaffected — which is also why
+splitting this work into its own repo cost the IG nothing.
 
 ## Consumer notes
 

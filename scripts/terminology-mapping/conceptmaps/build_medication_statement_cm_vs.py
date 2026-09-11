@@ -27,8 +27,8 @@ slice. See VS_MimicMedicationStatementCode.fsh.
 
 Being FSH-authored, it reaches a server through the IG build and
 scripts/publish-conformance.sh rather than through upload.py, and
-verify_mappings check 5 reads it from fsh-generated/ — so a clean checkout needs
-`sushi .` before `make mappings`.
+verify_mappings check 5 reads it from the IG snapshot, where `make sync-ig`
+puts it.
 
 COMPLETE AGAINST BOTH BINDINGS AS OF THE `medication-gsn` STREAM. All 10,548
 codes the two slice bindings admit have an entry here: the 1,201 `etc` codes and

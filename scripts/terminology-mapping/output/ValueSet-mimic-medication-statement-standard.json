@@ -7,7 +7,7 @@
  "title": "MIMIC MedicationStatement.medication[x] as RxNorm and SNOMED CT",
  "status": "active",
  "experimental": false,
- "date": "2026-08-11",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "The RxNorm and SNOMED CT concepts every mapped MIMIC medication-reconciliation code resolves to. Derived from ConceptMap/mimic-medication-statement-to-standard, whose targetCanonical this is, so membership here and reachability by $translate are the same set. TWO SYSTEMS MEANING TWO DIFFERENT THINGS, because the element's two coding slices do. The RxNorm members are DRUGS, reached from the `gsn` slice, at mixed granularity \u2014 clinical drugs where the FDB label stated a strength, ingredients where it did not. The SNOMED CT members are SUBSTANCE concepts \u2014 drug CLASSES \u2014 reached from the `etc` slice, and not medicinal products: FDB therapeutic classes are what those source codes are, and SNOMED CT's product hierarchy does not model them. A drug picker must not be built from the SNOMED CT half: it names categories, and several MIMIC codes legitimately share a member where FDB draws a distinction SNOMED CT does not. Neither include carries a version. This repo builds no RxNorm or SNOMED CT release, so pinning one would name something it cannot reproduce; the release each table was generated against is recorded in output/medication-etc-generation-log.json and output/medication-gsn-generation-log.json, where it is evidence rather than a promise.",
  "compose": {

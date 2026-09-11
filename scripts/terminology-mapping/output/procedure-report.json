@@ -4,7 +4,7 @@
  "conceptmap": "http://fhnaumann.github.io/mimic-profiles/fhir/ConceptMap/mimic-procedure-merged-to-standard",
  "valueset": "http://fhnaumann.github.io/mimic-profiles/fhir/ValueSet/mimic-procedure-merged-standard",
  "version": "1.0.0",
- "date": "2026-08-20",
+ "date": "2026-09-02",
  "streams": [
   "procedure-icd10",
   "procedure-icd9",

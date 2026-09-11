@@ -940,7 +940,7 @@ def main():
     codes = ig_codes()
     if not codes:
         sys.exit("  no source codes — CodeSystem-mimic-d-labitems.json is "
-                 "missing from input/resources/, so this would write an empty "
+                 "missing from the IG snapshot, so this would write an empty "
                  "table over a real one.")
     labitems = dictionary(codes)
     items = sorted(codes.items())

@@ -118,6 +118,31 @@ make statistics
 The job is **read-only** — it never writes to the warehouse. That is the
 difference from `merged_profile_provisioning`, which does.
 
+### Quantity unit coverage
+
+`Quantity.code` is not a CodeableConcept coding and is not among the bound
+coded elements in `elements.json`. Its direct `system`, `code`, and `unit`
+fields therefore need a separate extraction across every populated Quantity
+location served by `mimic-units-to-ucum`. Run:
+
+```bash
+sbatch occurrences/count_unit_occurrences.slurm
+```
+
+The job writes `occurrences/unit-output/unit-occurrences.csv` and its checksummed
+`unit-occurrence-summary.json` without replacing the full-registry artifacts.
+After fetching those two files, validate and calculate the stream metrics with:
+
+```bash
+uv run python3 occurrences/build_unit_coverage.py
+```
+
+That produces `unit-output/unit-coverage.json`. The extraction covers
+Observation value/component quantities and medication dosage dose/rate
+quantities in MedicationAdministration, MedicationRequest, and
+MedicationDispense. Do not substitute the older Observation-only valueshape
+counts for this whole-stream result.
+
 ## Why not the artefacts that already exist
 
 `scripts/binding-analysis/distinct-codes.ndjson` already has counts in its `n`

@@ -1954,7 +1954,7 @@ def main():
     codes = ig_codes()
     if not codes:
         sys.exit("  no source codes — CodeSystem-mimic-chartevents-d-items.json "
-                 "is missing from input/resources/, so this would write an "
+                 "is missing from the IG snapshot, so this would write an "
                  "empty table over a real one.")
     items_dict = dictionary(codes)
     shapes = observed_shapes()

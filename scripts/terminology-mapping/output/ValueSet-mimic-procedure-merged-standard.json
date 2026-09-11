@@ -7,7 +7,7 @@
  "title": "MIMIC merged Procedure codes as standard terminology",
  "status": "active",
  "experimental": false,
- "date": "2026-08-20",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "Every code the merged MIMIC Procedure profile admits, in standard terminology: MIMIC's ICD codes as official dotted ICD pinned to the earliest release containing them, plus the SNOMED CT codes that were already standard and map to themselves. Derived from ConceptMap/mimic-procedure-merged-to-standard, whose targetCanonical this is, so membership here and reachability by $translate are the same set. The SNOMED include carries no version: this repo builds no SNOMED release, so pinning one would name something it cannot reproduce.",
  "compose": {

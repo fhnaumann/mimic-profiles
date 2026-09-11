@@ -18,46 +18,44 @@ version got wrong.
 import json
 import sys
 
-from .canonical import FSH_GENERATED, RESOURCES
+from .canonical import RESOURCES
 
 
 def resource_path(source):
     """The IG resource a source's codes come from.
 
-    `file` names a MIMIC CodeSystem in input/resources/: the ValueSets bound
-    over those are bare composes carrying no enumerated concepts, so the
-    CodeSystem is the only enumeration there is.
+    `file` names a MIMIC CodeSystem: the ValueSets bound over those are bare
+    composes carrying no enumerated concepts, so the CodeSystem is the only
+    enumeration there is. `valueset_file` names an IG ValueSet that does
+    enumerate its concepts.
 
-    `valueset_file` names an IG ValueSet that does enumerate its concepts. Tried
-    in input/resources/ first, then fsh-generated/resources/ for the
-    FSH-authored ones.
+    Both resolve against the one committed snapshot directory. There used to be
+    two — input/resources/ and fsh-generated/resources/ of a sibling IG
+    checkout, tried in that order — and which one answered decided whether a
+    build worked at all, because the second was gitignored. See
+    sync_ig_resources.py.
     """
-    if "file" in source:
-        return RESOURCES / source["file"]
-    name = source["valueset_file"]
-    for directory in (RESOURCES, FSH_GENERATED):
-        if (directory / name).is_file():
-            return directory / name
-    return FSH_GENERATED / name
+    return RESOURCES / (source["file"] if "file" in source
+                        else source["valueset_file"])
 
 
 def source_concepts(source):
     """(code, display) for every code a source contributes.
 
-    A missing CodeSystem is a warning because input/resources/ ships with the
-    IG and its absence means a partial checkout. A missing ValueSet is fatal:
-    it is FSH-authored, so it is simply not built yet, and skipping it would
-    quietly emit a map that drops every code in that population.
+    A missing file is FATAL, without the CodeSystem/ValueSet distinction this
+    used to draw. That distinction encoded where the resource came from — a
+    CodeSystem shipped with the IG, a ValueSet had to be built by SUSHI — and
+    the snapshot ends it: every one of these files is committed and verified by
+    `make verify-ig`, so any absence means a corrupted snapshot rather than a
+    step someone has not run yet. Continuing would silently emit a map that
+    drops every code in the population.
     """
     path = resource_path(source)
     if not path.is_file():
-        if "valueset_file" in source:
-            sys.exit(f"  {path} not found. It is FSH-authored — run `sushi .` "
-                     f"first. Continuing without it would silently drop every "
-                     f"{source['system']} code from the map.")
-        print(f"  {path.name}: MISSING from input/resources/ — skipped",
-              file=sys.stderr)
-        return
+        sys.exit(f"  {path} not found in the IG snapshot. Run `make verify-ig` "
+                 f"to check it, and `make sync-ig` to rebuild it from an IG "
+                 f"checkout. Continuing would silently drop every "
+                 f"{source['system']} code from the map.")
     resource = json.loads(path.read_text())
     if resource.get("resourceType") == "ValueSet":
         for include in resource.get("compose", {}).get("include", []):

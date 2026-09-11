@@ -4,7 +4,7 @@
  "conceptmap": "http://fhnaumann.github.io/mimic-profiles/fhir/ConceptMap/mimic-specimen-to-standard",
  "valueset": "http://fhnaumann.github.io/mimic-profiles/fhir/ValueSet/mimic-specimen-standard",
  "version": "1.0.0",
- "date": "2026-08-07",
+ "date": "2026-09-02",
  "streams": [
   "lab-fluid",
   "spec-type"

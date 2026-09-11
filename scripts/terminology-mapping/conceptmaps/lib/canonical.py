@@ -4,11 +4,10 @@ from pathlib import Path
 
 from common import paths
 
-REPO = paths.ROOT.parent.parent
-RESOURCES = REPO / "input" / "resources"
-# FSH-authored IG resources land here. Gitignored, so a clean checkout must run
-# `sushi .` before the mapping stages — see igsource.source_concepts.
-FSH_GENERATED = REPO / "fsh-generated" / "resources"
+# The committed snapshot of the IG resources this repo reads. ONE directory,
+# where there used to be two paths into a sibling IG checkout — see
+# sync_ig_resources.py for why the snapshot exists and how it is refreshed.
+RESOURCES = paths.IG_RESOURCES
 
 # Mapping tables live next to the builders that declare them.
 TABLE_DIR = Path(__file__).resolve().parent.parent

@@ -35,9 +35,11 @@ Checks
    cannot catch a population the builder never declared; this reads the
    binding's own code list from occurrences/elements.json instead.
 
-6. (folded into 5's warning) The FSH-authored facade ValueSets must be
-   readable, i.e. `sushi .` must have run; said out loud instead of passing
-   silently.
+6. (folded into 5's warning) The bound facade ValueSets must be readable in the
+   IG snapshot; said out loud instead of passing silently. They are the
+   FSH-authored half of ig-resources/, so before the snapshot existed this meant
+   "`sushi .` has not run" — now it means the snapshot is incomplete, which
+   `make verify-ig` diagnoses precisely.
 
 7. Stream <-> map agreement. Every ConceptMap consuming a stream carries the
    IDENTICAL answers for that stream's codes — same target system, same target
@@ -122,8 +124,8 @@ def bound_codes(element):
     failure check 5 exists for.
 
     Returns None when the element is not in the registry or a bound ValueSet
-    could not be read (usually `sushi .` has not run); check 5 then says so
-    instead of passing silently.
+    could not be read (an incomplete IG snapshot); check 5 then says so instead
+    of passing silently.
     """
     entry = occurrences.registry().get(element)
     if entry is None:
@@ -234,7 +236,7 @@ def check_map(field, meta, out_dir, releases, groupers, conceptmap):
             f"completeness NOT CHECKED for {meta['element']}: its binding's own "
             f"code list could not be enumerated. Either the element is missing "
             f"from occurrences/elements.json, or a bound ValueSet could not be "
-            f"read — most of them are FSH-authored, so run `sushi .` first")
+            f"read from the IG snapshot — run `make verify-ig`")
     else:
         in_map = set(mapped) | declared_unmatched
         absent = admitted - in_map

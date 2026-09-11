@@ -88,7 +88,8 @@ def run(field_key, sources, meta, version, extras=None):
     args = ap.parse_args()
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
-    date = args.date or default_date(args.out_dir, source_paths(sources))
+    date = args.date or default_date(args.out_dir, source_paths(sources),
+                                     manifest=paths.INPUT_MANIFEST)
 
     print(f"== {field_key} ({meta['element']}) ==", file=sys.stderr)
     print("loading built CodeSystems ...", file=sys.stderr)

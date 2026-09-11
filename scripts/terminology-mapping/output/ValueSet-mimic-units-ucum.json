@@ -7,7 +7,7 @@
  "title": "MIMIC units as UCUM",
  "status": "active",
  "experimental": false,
- "date": "2026-08-20",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "The UCUM expressions every mapped MIMIC unit string resolves to. Derived from ConceptMap/mimic-units-to-ucum, whose targetCanonical this is, so membership here and reachability by $translate are the same set. Every member parses under ucumate, which the generator asserts on every row \u2014 this value set therefore contains no string that a UCUM implementation would reject, which is a stronger guarantee than this repo can make about any of its other target value sets, because it is decidable rather than gated against a server. The UCUM include carries no version: UCUM's identity is its grammar and a conformant expression parses the same under every release, so there is no release whose absence could change what `mm[Hg]` denotes. Note that several MIMIC strings legitimately share a member \u2014 `mmHg`, `mm Hg` and `mmHg.` all resolve to `mm[Hg]`, and the whole `tab`/`Tab`/`TAB`/`tablet`/`tablets`/`tabs` family to `{tablet}` \u2014 so the members here are far fewer than the mapped source codes, which is the normalisation the map exists to perform.",
  "compose": {

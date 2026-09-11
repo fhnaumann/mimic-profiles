@@ -112,12 +112,11 @@ NOT_IN_ENUMERATION = "not-in-enumeration"
 BUCKETS = (MAPPED, DECLINED, BLOCKED, UNRESOLVED, NO_MAP, NO_STREAM,
            NOT_IN_ENUMERATION)
 
-# The IG resources every enumeration is read from. Both directories, because the
-# MIMIC CodeSystems ship in input/resources/ while the FSH-authored ValueSets
-# are built into fsh-generated/ — the same split lib/igsource.py handles.
-_REPO = paths.ROOT.parent.parent
-_RESOURCE_DIRS = (_REPO / "input" / "resources",
-                  _REPO / "fsh-generated" / "resources")
+# The IG resources every enumeration is read from: one committed snapshot,
+# pinned by sha256. This used to be two directories of a sibling IG checkout,
+# the second of them gitignored — the same split lib/igsource.py handled. See
+# sync_ig_resources.py.
+_RESOURCE_DIRS = (paths.IG_RESOURCES,)
 
 
 def warn(msg):
@@ -324,8 +323,8 @@ def expand(url, index, seen=None):
 
     resource = index.get(url)
     if resource is None:
-        warn(f"{url} not found in input/resources/ or fsh-generated/ — "
-             f"treating its codes as outside every enumeration")
+        warn(f"{url} not found in the IG snapshot ({paths.IG_RESOURCES.name}/) "
+             f"— treating its codes as outside every enumeration")
         return {}
     if resource.get("resourceType") == "CodeSystem":
         return {(resource["url"], code): display

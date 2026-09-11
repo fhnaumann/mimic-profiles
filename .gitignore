@@ -25,7 +25,7 @@ scripts/terminology-mapping/sources/
 # large generated CodeSystems are published as GitHub release assets, not committed
 scripts/terminology-mapping/output/CodeSystem-*.json
 # derived view of mapping-statistics.csv (which IS committed) — regenerate any time
-scripts/terminology-mapping/output/mapping-statistics.html
+# scripts/terminology-mapping/output/mapping-statistics.html
 
 # merged-profile-provisioning: local Spark scratch + generated draft artifacts
 # (document mode's summaries/suggested FSH are drafts for a human to review,

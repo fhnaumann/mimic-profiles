@@ -7,7 +7,7 @@
  "title": "MIMIC MedicationDispense.medication[x] as RxNorm and SNOMED CT",
  "status": "active",
  "experimental": false,
- "date": "2026-08-11",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "The RxNorm and SNOMED CT concepts every mapped MIMIC dispense code resolves to. Derived from ConceptMap/mimic-medication-dispense-to-standard, whose targetCanonical this is, so membership here and reachability by $translate are the same set. Two systems, because one does not suffice. RxNorm carries the drug products and is the target for all but a handful of codes; SNOMED CT substances cover the labels naming a drug CLASS, which RxNorm does not model \u2014 `Insulin` is the largest, and RxNorm 20231106 has 49 specific insulins and no generic ingredient for it \u2014 and the blood components recorded as ICU medication items, for which RxNorm has no concept at all. The GSN population contributes RxNorm targets only. Neither include carries a version. This repo builds no RxNorm or SNOMED release, so pinning one would name something it cannot reproduce; the RxNorm release each table was generated against is recorded in the matching output/*-generation-log.json, where it is evidence rather than a promise. Note that several MIMIC codes legitimately share a member, and on this element more than on any other: MIMIC records case variants as distinct codes, so `LORazepam` and `Lorazepam` both resolve to RxCUI 6470, and a drug name and the GSN for the same drug resolve to one concept across the two systems. Codes cannot be told apart after translation.",
  "compose": {

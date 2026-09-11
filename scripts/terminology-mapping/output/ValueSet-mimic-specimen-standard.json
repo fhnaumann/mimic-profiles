@@ -7,7 +7,7 @@
  "title": "MIMIC Specimen types as SNOMED CT",
  "status": "active",
  "experimental": false,
- "date": "2026-08-07",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "The SNOMED CT specimen concepts every mapped MIMIC Specimen.type code resolves to. Derived from ConceptMap/mimic-specimen-to-standard, whose targetCanonical this is, so membership here and reachability by $translate are the same set. Every member is inside `<<123038009 |Specimen|` and in the SNOMED international core \u2014 the generator gates on both, which is what keeps this value set resolvable on a server other than the one it was built against. The SNOMED CT include carries no version: this repo builds no SNOMED release, so pinning one would name something it cannot reproduce. Note that several MIMIC codes legitimately share a member: SNOMED files no neonate-qualified or post-mortem-qualified blood-culture specimen, so three distinct MIMIC specimen types resolve to 446131002 |Blood specimen obtained for blood culture| and cannot be told apart after translation.",
  "compose": {

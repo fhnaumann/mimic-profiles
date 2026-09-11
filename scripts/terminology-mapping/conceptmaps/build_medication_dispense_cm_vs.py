@@ -22,8 +22,8 @@ element. See VS_MimicMedicationDispenseMerged.fsh.
 
 Being FSH-authored, it reaches a server through the IG build and
 scripts/publish-conformance.sh rather than through upload.py, and
-verify_mappings check 6 reads it from fsh-generated/ — so a clean checkout needs
-`sushi .` before `make mappings`.
+verify_mappings check 6 reads it from the IG snapshot, where `make sync-ig`
+puts it.
 
 EVERY CODE THE BINDING ADMITS IS IN THIS MAP, all 29,635 — the 20,288 of
 `mimic-medication` plus the 9,347 of `mimic-medication-gsn`. Under a `required`

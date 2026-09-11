@@ -222,8 +222,8 @@ STREAMS = {
     },
     "medication-with-unknown": {
         # v3-NullFlavor#UNK, for administrations whose drug could not be
-        # coded. Ships in input/resources/ despite being a ValueSet, hence
-        # `file` rather than `valueset_file`.
+        # coded. A ValueSet the IG ships ready-enumerated rather than one SUSHI
+        # builds, hence `file` rather than `valueset_file`.
         "system": NULL_FLAVOR,
         "file": "ValueSet-mimic-medication-with-unknown.json",
         "identity": True,

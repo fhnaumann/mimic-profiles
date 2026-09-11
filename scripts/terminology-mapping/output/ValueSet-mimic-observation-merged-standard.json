@@ -7,7 +7,7 @@
  "title": "MIMIC merged Observation codes as standard terminology",
  "status": "active",
  "experimental": false,
- "date": "2026-08-20",
+ "date": "2026-09-02",
  "publisher": "CSIRO",
  "description": "Every code the merged MIMIC Observation profile admits on Observation.code, in standard terminology. Derived from ConceptMap/mimic-observation-merged-to-standard, whose targetCanonical this is, so membership here and reachability by $translate are the same set. Neither the LOINC nor the SNOMED CT include carries a version: this repo builds no LOINC or SNOMED release, so pinning one would name something it cannot reproduce. Grows as each code-search stream is added to the map.",
  "compose": {
