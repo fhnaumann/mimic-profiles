@@ -9,7 +9,8 @@ separately in ``already_bound`` for reference.
 
 Output: ``scripts/binding-analysis/work-items.json`` + a summary table on stdout.
 
-Python 3 stdlib only. See RUNBOOK.md for the surrounding pipeline.
+Python 3 stdlib only. See RUNBOOK.md for the surrounding pipeline and
+FINDINGS.md for what this analysis concluded.
 """
 
 from __future__ import annotations
@@ -26,7 +27,7 @@ NON_EXAMPLE_STRENGTHS = ("required", "extensible", "preferred")
 
 # PascalCase suffix on a Spark column name -> FHIRPath type token used in
 # `.ofType(...)`. Copied verbatim from
-# master_thesis_pipeline/orchestration-new/src/services/fhir_polymorphic.py
+# the thesis backend's src/services/fhir_polymorphic.py
 # (_FHIR_TYPE_SUFFIX_TO_FHIRPATH). Complex FHIR types keep PascalCase,
 # primitives go lowercase, per the FHIRPath spec.
 _FHIR_TYPE_SUFFIX_TO_FHIRPATH: dict[str, str] = {

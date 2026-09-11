@@ -7,6 +7,10 @@ Produced 2026-07-10 from the full pipeline run: 131 candidate elements scanned
 cross-check (`binding-report.{json,md}`), and live Ontoserver validation of the
 external-terminology fields. See `RUNBOOK.md` (repo root) for the overall pipeline.
 
+`distinct-codes.ndjson` is not committed — it is 9.4 MB of warehouse-derived
+counts and regenerable by re-running `phase1_extract_distinct.py` on the node.
+The reports below are what it was reduced to.
+
 ## Results overview (11 populated elements of 131 candidates; 120 had no data)
 
 | Element | Profile | Verdict | Evidence |
@@ -92,7 +96,7 @@ CodeableConcept`) is valid FSH and matches the SDs' existing spelling.
   (`text` is 1..1 but ~68% of rows have no codings; a required CodeableConcept
   binding would invalidate them). No merged-VS binding on the CodeableConcept.
   - **NDC slice — option (c) chosen, (b) documented for later**: NDC
-    (`http://hl7.org/fhir/sid/ndc`) is loaded on neither velonto.dw.csiro.au/fhir
+    (`http://hl7.org/fhir/sid/ndc`) is loaded on neither ontoserver.example.org/fhir
     nor tx.ontoserver.csiro.au (verified 2026-07-10: CodeSystem search total=0,
     $lookup/$expand 404 on both), so a whole-system include (option a) is dead.
     **Option (b), deferred:** generate an extensional VS (e.g.

@@ -33,6 +33,12 @@ scripts/terminology-mapping/output/CodeSystem-*.json
 scripts/merged_profile_provisioning/spark-warehouse/
 scripts/merged_profile_provisioning/artifacts/
 
+# binding-analysis: the full-data distinct-code extraction, 9.4 MB of
+# warehouse-derived counts. Regenerate with phase1_extract_distinct.py on the
+# node; what it was reduced to is committed as binding-report.{json,md},
+# work-items.json and FINDINGS.md.
+scripts/binding-analysis/distinct-codes.ndjson
+
 # Local credentials and Pi agent/session artifacts — never commit
 .env
 .pi/
