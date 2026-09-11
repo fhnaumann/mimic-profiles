@@ -244,7 +244,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pathling", specifier = ">=9.8.0" },
     { name = "striprtf", specifier = ">=0.0.32" },
-    { name = "ucumate", path = "../ucumate/ucumate-python/dist/ucumate-1.0.8-py3-none-any.whl" },
+    { name = "ucumate", specifier = ">=1.0.8" },
 ]
 
 [[package]]
@@ -420,20 +420,14 @@ wheels = [
 [[package]]
 name = "ucumate"
 version = "1.0.8"
-source = { path = "../ucumate/ucumate-python/dist/ucumate-1.0.8-py3-none-any.whl" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jpype1" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/f4/98/026828a525ce9f2d8ade0281b978ed780e30dec4470526142f73d8598103/ucumate-1.0.8.tar.gz", hash = "sha256:5eaccd09aadff44ed4a466cbc80d4f485bf4d0e167757351dbc18cd942f23742", size = 15389265, upload-time = "2026-09-02T04:39:03.62Z" }
 wheels = [
-    { filename = "ucumate-1.0.8-py3-none-any.whl", hash = "sha256:fbf1f43a6823cf06bae48dc258a4d129e237c75673b8b48da3d1973dc14d4a81" },
+    { url = "https://files.pythonhosted.org/packages/f9/14/4459c837a71472d419608c687e27f68126af9be5943fa1a4eecebc62d5fc/ucumate-1.0.8-py3-none-any.whl", hash = "sha256:8fc881fa4eaa1dbdb5c60eb0252b473f5df1e8462440a5e326493c8e024413dc", size = 15395365, upload-time = "2026-09-02T04:39:00.971Z" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "jpype1", specifier = ">=1.5.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "wcwidth"
