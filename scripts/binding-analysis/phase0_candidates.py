@@ -9,7 +9,8 @@ separately in ``already_bound`` for reference.
 
 Output: ``scripts/binding-analysis/work-items.json`` + a summary table on stdout.
 
-Python 3 stdlib only. See RUNBOOK.md for the surrounding pipeline.
+Python 3 stdlib only. See RUNBOOK.md for the surrounding pipeline and
+FINDINGS.md for what this analysis concluded.
 """
 
 from __future__ import annotations

@@ -7,6 +7,10 @@ Produced 2026-07-10 from the full pipeline run: 131 candidate elements scanned
 cross-check (`binding-report.{json,md}`), and live Ontoserver validation of the
 external-terminology fields. See `RUNBOOK.md` (repo root) for the overall pipeline.
 
+`distinct-codes.ndjson` is not committed — it is 9.4 MB of warehouse-derived
+counts and regenerable by re-running `phase1_extract_distinct.py` on the node.
+The reports below are what it was reduced to.
+
 ## Results overview (11 populated elements of 131 candidates; 120 had no data)
 
 | Element | Profile | Verdict | Evidence |
