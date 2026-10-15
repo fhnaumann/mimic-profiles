@@ -91,3 +91,5 @@ are now bound.
 - Removed the invalid `CodeSystem.valueSet` all-codes claim from
   `mimic-admission-class` and `mimic-admission-type` (their ValueSets also
   include codes from other systems).
+
+Third-party material in this repository and its terms: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
