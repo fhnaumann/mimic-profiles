@@ -23,9 +23,9 @@ The upstream content (the FSH profiles, `input/resources/` CodeSystems and Value
 scripts) is used here under the terms of its upstream authors, whatever those are; this fork
 grants no rights in it.
 
-**The fork owner's additions and changes:** `scripts/terminology-mapping/`,
+**The fork owner's additions and changes:**
 `scripts/binding-analysis/`, `scripts/mimic-pipeline/`, `scripts/merged_profile_provisioning/`, `agent_plans/`,
-`.claude/skills/mapping-stream/`, `Makefile`, `pyproject.toml`, `uv.lock`, the top-level notes
+`Makefile`, `pyproject.toml`, `uv.lock`, the top-level notes
 (`NOTES.md`, `RUNBOOK.md`, `MODIFICATION_PLAN.md`, `TERMINOLOGY_STREAMS_DRAFT.md`,
 `CODE-SEARCH-BUG-REPORT.md`, `upload-verification-report.md`, `Requirements-fromNarrative.json`,
 `hard_c*.jsonl`), and edits to FSH profiles and CodeSystems/ValueSets (terminology bindings, ICD
@@ -40,13 +40,15 @@ upstream KinD Lab material.
 
 ## Clinical terminologies
 
-The terminology mapping tables and their outputs (`scripts/terminology-mapping/conceptmaps/`,
-`output/`, `eval/`) map MIMIC's local codes to standard terminologies and carry **codes with
-their display names**: about 4,500 SNOMED CT concepts, about 6,000 LOINC codes, about 36,000
-RxNorm concepts and about 600 UCUM units. `conceptmaps/medication-rxnorm-term-index.tsv/.json`
-additionally indexes about 121,000 RxNorm names of about 73,000 concepts (RxNorm release
-20231106, term types IN, PIN, MIN, BN, SCD, GPCK, BPCK), taken from a terminology server's RxNorm
-code system.
+No terminology mapping tables are included in this repository; the tables that map MIMIC's
+local codes to standard terminologies are kept in a separate, non-public repository.
+
+The implementation guide refers to a small number of codes from external terminologies, with
+their display names, in ValueSets and examples (`input/fsh/`, `input/resources/`; almost all
+upstream): three SNOMED CT concepts (`308335008`, `386478007`, `410188000`), eleven LOINC codes
+(vital signs and ED triage observations; two of them, `8480-6` and `8462-4`, are quoted again in
+`scripts/binding-analysis/`) and six UCUM codes. `CODE-SEARCH-BUG-REPORT.md` and `hard_c*.jsonl`
+name one SNOMED CT concept (`105590001 |Substance|`) as a search constraint.
 
 `input/resources/` (upstream, partly edited) holds CodeSystems built from MIMIC-IV's dictionary
 tables, including ICD-9-CM/ICD-10-CM/ICD-10-PCS codes with their descriptions, NDC and GSN drug
@@ -72,12 +74,6 @@ Affiliate Licence, or a national release licence in a SNOMED International Membe
 > Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is
 > available at no cost under the license at http://loinc.org/license. LOINC® is a registered
 > United States trademark of Regenstrief Institute, Inc.
-
-### RxNorm
-
-> This product uses publicly available data from the U.S. National Library of Medicine (NLM),
-> National Institutes of Health, Department of Health and Human Services; NLM is not responsible
-> for the product and does not endorse or recommend this or any other product.
 
 ### UCUM
 
@@ -145,20 +141,9 @@ resource for complex physiologic signals. *Circulation* 101(23):e215–e220 (200
 current standard citation is Pollard T, Moody BE, Lehman L, et al. PhysioNet as a global platform
 for biomedical research. *Nature Health* (2026). <https://doi.org/10.1038/s44360-026-00096-z>
 
-> Contains information from the MIMIC-IV Clinical Database Demo, which is made available here
-> under the Open Database License (ODbL).
-
-The demo-derived files listed below are derived databases of these releases. Under ODbL §4.4 a
-derived database that is publicly used must itself be offered under the ODbL, so these data files
-are subject to the ODbL v1.0. This applies to those data files only, not to the code in this
-repository.
-
-Demo-derived files in this repository:
-
-- `scripts/terminology-mapping/occurrences/demo/**` (`code-occurrences.csv`,
-  `reference-occurrences.csv`, `element-shapes.csv`, `occurrence-summary.json`, and
-  `inventory/mimic-iv-demo-2.2-1e912c8b29d3.{csv,meta.json}`): aggregate code-occurrence counts of
-  a MIMIC-on-FHIR warehouse built from the demo release.
+No data files derived from the demo releases are included in this repository. The scripts in
+`scripts/mimic-pipeline/` and `scripts/merged_profile_provisioning/` are written to read them (or a
+warehouse built from them) at run time.
 
 ### MIMIC-IV (credentialed)
 
@@ -169,8 +154,7 @@ available only to credentialed users under the **PhysioNet Credentialed Health D
 and the PhysioNet Credentialed Health Data Use Agreement 1.5.0. No patient-level data from it is
 included in this repository.
 
-Full-dataset content appears here only in aggregate form: occurrence and value-shape
-summaries (`occurrences/occurrence-summary.json`, `occurrences/prod/`, `unit-output/`,
-`valueshapes/value-shape-summary.json`), the data-weighted `output/mapping-statistics.csv` and
-`output/occurrence-buckets.csv`, and the binding analysis (`scripts/binding-analysis/`). The
-full-data inventories themselves are kept out of the repository (`.gitignore`).
+Full-dataset content appears here only in aggregate form: the binding analysis
+(`scripts/binding-analysis/`) and aggregate counts quoted in FSH ValueSet descriptions and the
+top-level notes. The full-data distinct-code extraction itself is kept out of the repository
+(`.gitignore`).

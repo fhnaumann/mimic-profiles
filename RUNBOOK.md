@@ -4,10 +4,12 @@ This repo is a fork of [kindlab/mimic-profiles](https://github.com/kind-lab/mimi
 (the MIMIC-on-FHIR IG, upstream v1.3.0) carrying all CSIRO modifications, currently at
 IG version **1.4.0-csiro**:
 
-1. **Terminology build** (`scripts/terminology-mapping/`, merged from the former
-   `update-mimic-terminology` repo): FHIR R4 CodeSystems for ICD-9-CM 2012 and
-   ICD-10-CM 2016–2019 plus the `mimic-diagnosis` ValueSet, generated from CMS/CDC
-   source distributions.
+1. **Terminology** — the FHIR R4 CodeSystems for ICD-9-CM 2012 and ICD-10-CM
+   2016–2019, the `mimic-diagnosis` ValueSet, and the ConceptMaps (with their
+   enumerated target ValueSets) that map MIMIC's local codes to standard
+   terminologies. These are **not built in this repository**: they come from a
+   separate, non-public terminology mapping repository and are published to the
+   terminology server from there.
 2. **Required terminology bindings** on 12+ profile elements, derived from a coverage
    analysis of the **full** MIMIC-on-FHIR dataset (`scripts/binding-analysis/`).
 3. **Condition.code migration** of the source data from the custom dotless MIMIC ICD
@@ -28,16 +30,9 @@ Two environments, with a hard boundary:
   server**. Everything the node needs must be carried in as committed files.
 
 ```
-[laptop]  verify-inputs ─→ terminology ─→ deploy-terminology ──┐
-[laptop]  ig (sushi + _genonce.sh) ─→ package upload ──────────┤
-                                                               ▼
-[laptop]  mappings  =  condition ─→ procedure ─→ verify-mappings
-              │            (offline; needs the built CodeSystems in output/)
-              │            each builder writes its ConceptMap AND its ValueSet
-              ▼  … you read <field>-report.json and unmapped-<field>.csv …
-[laptop]  upload-mappings   (gated: refuses while any code is unmapped)
-              │  ConceptMaps + ValueSets → $ONTOSERVER_URL
-              ▼
+[separate repo]  CodeSystems, ConceptMaps + ValueSets → $ONTOSERVER_URL ──┐
+[laptop]  ig (sushi + _genonce.sh) ─→ package upload ──────────────────────┤
+                                                                           ▼
 [node]    read-time translation via ConceptMap/$translate
 ```
 
@@ -49,14 +44,14 @@ Artifacts crossing the boundary:
 
 | Artifact | Direction | Note |
 |---|---|---|
-| `scripts/terminology-mapping/output/ConceptMap-*.json` | laptop → server | the mapping rules, committed; the only place they live |
-| `scripts/terminology-mapping/output/ValueSet-mimic-{diagnosis,procedure}.json` | laptop → server | enumerated target value sets, committed |
 | `scripts/binding-analysis/work-items.json` | laptop → node | drove the one-time phase-1 extraction |
-| `scripts/terminology-mapping/occurrences/{count_occurrences.py,elements.json,count_occurrences.slurm}` | laptop → node | the occurrence count job |
-| `scripts/terminology-mapping/occurrences/{code-occurrences.csv,occurrence-summary.json}` | node → laptop | per-code counts, committed; optional input to `make statistics` |
 
-Repeatable stages: `verify-inputs`, `terminology`, `ig`, `deploy-terminology`,
-`mappings`, `upload-mappings`. One-time analysis (documented in §5–6, re-runnable
+The ConceptMaps and ValueSets the node translates with belong to the separate
+terminology mapping repository (as does the node job that counts code
+occurrences); they reach the node through the terminology server, not through
+this repo.
+
+Repeatable stages: `ig`. One-time analysis (documented in §5–6, re-runnable
 manually but their conclusions are frozen into committed files): binding-analysis
 phases 0–2.
 
@@ -67,29 +62,15 @@ CLI flags on the underlying scripts override the environment.
 
 | Variable | Used by | Meaning |
 |---|---|---|
-| `ONTOSERVER_URL` | terminology builds, `upload-mappings` | FHIR terminology server base URL. Unset ⇒ builds skip upload |
-| `ICD_SOURCE_DIR` | terminology builds, `verify_inputs.py` | directory with the raw ICD distributions, one folder per code system per fiscal year |
+| `ONTOSERVER_URL` | `_genonce.sh` (IG Publisher `-tx`), `scripts/merged_profile_provisioning/provision.py` | FHIR terminology server base URL |
+| `PATHLING_URL` | `scripts/merged_profile_provisioning/provision.py` | Pathling server base URL |
 | `MIMIC_WAREHOUSE` | `scripts/mimic-pipeline/` | Pathling Delta warehouse path (node) |
 
-Input identity is pinned in `scripts/terminology-mapping/input-manifest.json`
-(SHA-256 + size of every source file that influences output, source URLs, MIMIC data
-fingerprint). `make verify-inputs` checks a local copy against it.
-
-Make targets (one per stage):
+Make targets:
 
 | Target | Where | What |
 |---|---|---|
-| `verify-inputs` | laptop | hash-check ICD sources against the manifest |
-| `terminology` | laptop | build all CodeSystems + ValueSet into `scripts/terminology-mapping/output/` (no upload) |
-| `deploy-terminology` | laptop | build **and** upload to `$ONTOSERVER_URL`, incl. `$lookup` smoke tests |
 | `ig` | laptop | `sushi` + `./_genonce.sh` → `output/package.tgz` |
-| `condition` | laptop | `Condition.code`: ConceptMap + enumerated target ValueSet, one offline pass |
-| `procedure` | laptop | `Procedure.code`: same, for the three merged populations |
-| `verify-mappings` | laptop | coverage + invariant checks; non-zero while any code is unmapped |
-| `mappings` | laptop | every builder, then verify — the everyday command |
-| `verify-curated` | laptop | `$lookup` every SNOMED code in the mapping tables (needs the network) |
-| `d-items-table` | laptop | regenerate the ICU table from code-search (needs the network; never part of `mappings`) |
-| `upload-mappings` | laptop | publish ConceptMaps + ValueSets; gated on `verify-mappings`, override with `ARGS=--allow-unmapped`, TLS flags via `UPLOAD_ARGS` |
 
 ## 3. Toolchain
 
@@ -105,20 +86,12 @@ Make targets (one per stage):
 
 ## 4. Stage details
 
-### verify-inputs
-`make verify-inputs`. Inputs: `$ICD_SOURCE_DIR`. Verification is the stage: all 10
-files must report `ok`. Sources: CMS ICD-10-CM yearly downloads
-(<https://www.cms.gov/medicare/coding-billing/icd-10-codes>), CDC/CMS FY2012 (v29)
-ICD-9-CM distribution. Layout in `scripts/terminology-mapping/README.md`.
-
-### terminology
-`make terminology`. Inputs: verified ICD sources. Outputs:
-`scripts/terminology-mapping/output/CodeSystem-icd-9-cm-2012.json`,
-`CodeSystem-icd-10-cm-{2016..2019}.json` (gitignored, ~36 MB each),
-`ValueSet-mimic-diagnosis.json` (committed).
-**Verify:** byte-diff against the release assets (§7); the only legitimate diff is the
-ValueSet's `date` field (stamped with the build date). The ICD-9 RTF conversion is
-pure-Python (`striprtf`), proven byte-identical to the original macOS `textutil` path.
+### terminology (external)
+The ICD CodeSystems, the ConceptMaps and their target ValueSets are built,
+verified and published to `$ONTOSERVER_URL` from the separate, non-public
+terminology mapping repository. This repository only consumes them: the IG
+Publisher resolves bindings against the terminology server, and the node
+translates through the published ConceptMaps.
 
 ### ig
 `make ig`. Compiles `input/fsh/` with SUSHI, then `./_genonce.sh` runs the IG
@@ -130,56 +103,12 @@ FSH-compiled artifacts — all tooling must read `output/package.tgz`, never
 **Verify:** publisher QA report sane (no new errors vs. previous build);
 `validator_cli` passes on the IG examples.
 
-### deploy-terminology
-`make deploy-terminology`. Uploads the 5 CodeSystems + `mimic-diagnosis` ValueSet to
-`$ONTOSERVER_URL` and runs built-in `$lookup` smoke tests (the ICD-9 script also
-deletes the superseded old ValueSet id).
-**Verify:** smoke tests pass (nonzero exit otherwise).
-
+### IG package upload
 The **IG package upload** (package.tgz → server) was performed by the terminology
 server admin / manual FHIR upload, not by a script in this repo.
 **Verify:** the checks recorded in `upload-verification-report.md` — resource counts
 per type at the new version, `$expand` on `mimic-medication-with-unknown`,
 `$validate-code` on `v3-NullFlavor#UNK`, `$lookup` spot-checks on admission-class/type.
-
-### mappings
-`make mappings`. Runs one builder per bound element, then verifies. Fully offline
-and takes seconds — the builders take no `--fhir-base` at all. Inputs: the built
-CodeSystems in `output/`, `input/resources/CodeSystem-mimic-*.json`, the
-FSH-generated ValueSets, and the committed `conceptmaps/d-items-snomed.csv`.
-
-Each builder writes four files in one pass:
-`ConceptMap-<id>.json`, the enumerated `ValueSet-<target id>.json` that map's
-`targetCanonical` names, `unmapped-<field>.csv`, and `<field>-report.json`
-(coverage in a shape that is comparable across populations). All committed.
-
-Nothing downstream re-derives a mapping — the shared machinery is in
-`conceptmaps/lib/`, and the dot rules live only in `lib/notation.py`. See
-`scripts/terminology-mapping/README.md`.
-
-**Verify:** all four checks pass — coverage, ValueSet == ConceptMap target side,
-only releases built here, and no ICD-9 procedure code mapped to an ICD-10-PCS
-grouper. Rebuilds from unchanged inputs are byte-identical, so
-`make mappings && git diff --exit-code` is a valid test.
-
-`make statistics` (run by every field target, and last in `mappings`) flattens the
-reports into `output/mapping-statistics.{csv,html}`. If
-`occurrences/code-occurrences.csv` is present it also weights every coverage
-figure by how often each code occurs in the warehouse and writes
-`output/occurrence-buckets.csv` — the counts come from the node job in §6, are
-committed, and are verified against their summary's sha256, so this stage stays
-offline and byte-identical either way. Absent, nothing changes.
-
-### upload-mappings
-`make upload-mappings`. Runs `verify-mappings` first and **refuses to publish
-while any code is unmapped** — read `unmapped-<field>.csv`, fix the input that is
-missing (almost always an unbuilt ICD release), and re-run. Once reviewed,
-`make upload-mappings ARGS=--allow-unmapped` publishes anyway; that flag does not
-relax the three correctness checks.
-
-Publication is a plain `PUT` by resource id. Nothing is deleted first: CodeSystem
-releases deliberately share one canonical URL and differ only by `version`, so a
-delete-by-url would take the sibling releases with it.
 
 ## 5. What was changed and why (provenance)
 
@@ -259,8 +188,7 @@ the reproduction path — the pipeline rebuilds from their committed outputs.
 | `scripts/binding-analysis/phase0_candidates.py` | laptop | `work-items.json` (131 candidates) | needs a built `output/package.tgz` |
 | `scripts/binding-analysis/phase1_extract_distinct.py` | node | `distinct-codes.ndjson`, `extract-summary.json` | `uv run … --data $MIMIC_WAREHOUSE` (see `--help`); PathlingContext must own the SparkSession; Pathling 7+ `view()` not `extract()` |
 | `scripts/binding-analysis/phase2_crosscheck.py` | laptop | `binding-report.{json,md}` | offline, stdlib-only over package.tgz + distinct-codes |
-| `scripts/terminology-mapping/occurrences/count_occurrences.py` | node | `code-occurrences.csv`, `occurrence-summary.json` | `sbatch count_occurrences.slurm` on the HPC cluster — read-only, never writes to the warehouse. Self-contained (stdlib + pathling only) because the node's uv env is Python 3.12, not this repo's 3.14. Full procedure incl. login-node smoke test: `occurrences/README.md`. Re-run only after the warehouse itself changes |
-| `scripts/icd-migration/check_icd_codes.py` | laptop | `display-map.json`, `validation-*.csv`, `unmapped-*.csv` | `make check-codes` — requires the terminology deployed first (`deploy-terminology` + package upload); `--insecure` available for cert issues. `display-map.json` is already committed; regenerate only after a terminology change, and confirm `unmapped-*.csv` stay empty |
+| `scripts/icd-migration/check_icd_codes.py` | laptop | `display-map.json`, `validation-*.csv`, `unmapped-*.csv` | `make check-codes` — requires the terminology deployed first (published from the separate terminology repository, plus the IG package upload); `--insecure` available for cert issues. `display-map.json` is already committed; regenerate only after a terminology change, and confirm `unmapped-*.csv` stay empty |
 
 Current findings state: FINDINGS.md — all decisions D1–D4 resolved 2026-07-10 and
 applied; binding-report.md — final coverage evidence; `unmapped-icd{9,10}.csv` — empty
@@ -271,13 +199,14 @@ applied; binding-report.md — final coverage evidence; `unmapped-icd{9,10}.csv`
 One git tag per IG version (`v1.4.0-csiro`, …) on the commit that built it. The GitHub
 release attaches what git doesn't carry:
 
-- `CodeSystem-icd-9-cm-2012.json`, `CodeSystem-icd-10-cm-{2016,2017,2018,2019}.json`
 - `output/package.tgz` (the built IG package)
 - `SHA256SUMS` over the assets
 
-Reproduce: checkout the tag → `make verify-inputs` → `make terminology` / `make ig` →
-diff outputs against the assets (expected diffs: ValueSet `date`; package.tgz embeds
-build timestamps — compare its contents, not the archive bytes).
+The ICD CodeSystem assets attached to earlier releases are built by the separate
+terminology mapping repository.
+
+Reproduce: checkout the tag → `make ig` → diff outputs against the assets
+(package.tgz embeds build timestamps — compare its contents, not the archive bytes).
 
 ## 8. Known caveats
 
@@ -291,17 +220,17 @@ build timestamps — compare its contents, not the archive bytes).
   awk '/BEGIN CERT/,/END CERT/' > /tmp/velonto-chain.pem &&
   keytool -importcert -noprompt -alias velonto -file /tmp/velonto-chain.pem
   -keystore input-cache/velonto-truststore.jks -storepass changeit`
-- **Uploads are gated on `ONTOSERVER_URL`**: terminology builds skip upload when it is
-  unset; `check_icd_codes.py` refuses to run.
+- **`ONTOSERVER_URL` unset**: `_genonce.sh` falls back to
+  `https://ontoserver.example.org/fhir`, and builds offline (`-tx n/a`) when that
+  is unreachable; `check_icd_codes.py` refuses to run.
 - **The HPC node has no internet**: node stages consume only committed files; don't
   add server calls to node-side scripts.
 - **ICD-10-CM 2024** appears in the version pins (501 codings) but is **not built by
-  this repo** — the 2024 CodeSystem was already present on velonto. A from-scratch
+  the terminology build** — the 2024 CodeSystem was already present on velonto. A from-scratch
   server rebuild must load ICD-10-CM 2024 from elsewhere or those codings won't
   validate.
 - **`_updatePublisher.sh` pulls the latest publisher** (no version pin) — record the
   version it fetched (currently 2.2.10) when rebuilding the IG.
 - **`Requirements-fromNarrative.json`** (repo root, untracked) is referenced nowhere
   and its origin is unclear — left for Felix to keep or delete.
-- **IG package upload is not scripted** — it was done server-side by the admin;
-  §4 deploy-terminology covers only CodeSystems/ValueSet.
+- **IG package upload is not scripted** — it was done server-side by the admin.
