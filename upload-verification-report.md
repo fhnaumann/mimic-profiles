@@ -1,7 +1,7 @@
 # Upload Verification Report
 
 **Package:** `kindlab.fhir.mimic` v`1.4.0-csiro`
-**Server:** `https://velonto.dw.csiro.au/fhir/`
+**Server:** `https://ontoserver.example.org/fhir/`
 **Date:** 2026-07-13
 
 ## Server Status

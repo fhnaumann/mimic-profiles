@@ -62,4 +62,4 @@ jobs:
       - name: "Publish conformance resources to Velonto"
         shell: bash
         run: |
-          scripts/publish-conformance.sh http://velonto.dw.csiro.au/fhir output
+          scripts/publish-conformance.sh "${{ vars.ONTOSERVER_URL }}" output

@@ -18,7 +18,7 @@ set -euo pipefail
 usage() {
   echo "Usage: $0 <fhir-base-url> <resource-dir>" >&2
   echo >&2
-  echo "  <fhir-base-url>  FHIR R4 base URL, e.g. http://velonto.dw.csiro.au/fhir." >&2
+  echo "  <fhir-base-url>  FHIR R4 base URL, e.g. http://ontoserver.example.org/fhir." >&2
   echo "  <resource-dir>   Directory holding CodeSystem-*.json, ValueSet-*.json," >&2
   echo "                   and StructureDefinition-*.json." >&2
 }

@@ -42,3 +42,13 @@ scripts/binding-analysis/distinct-codes.ndjson
 # Local credentials and Pi agent/session artifacts — never commit
 .env
 .pi/
+
+# terminology-mapping: full-MIMIC-IV lookup tables with small cells (counts
+# below 11, free-text displays and values). Local only, never tracked; see
+# occurrences/README.md and valueshapes/README.md for how to regenerate them.
+scripts/terminology-mapping/occurrences/code-occurrences.csv
+scripts/terminology-mapping/occurrences/reference-occurrences.csv
+scripts/terminology-mapping/occurrences/prod/inventory/
+scripts/terminology-mapping/occurrences/unit-output/unit-occurrences.csv
+scripts/terminology-mapping/valueshapes/observation-value-shapes.csv
+scripts/terminology-mapping/valueshapes/observation-value-domains.csv
